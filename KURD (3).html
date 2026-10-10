@@ -1,0 +1,2995 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KURD — Videoyên Kurdistanê</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050507;
+      --bg-card: #0e0e14;
+      --bg-elevated: #15151f;
+      --bg-hover: #1c1c28;
+      --accent: #e50914;
+      --accent-soft: rgba(229,9,20,0.15);
+      --accent-hover: #ff1a25;
+      --text: #f4f4f6;
+      --text-muted: #8b8b9e;
+      --text-dim: #5c5c6e;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 30px 60px -15px rgba(0,0,0,0.8);
+      --success: #22c55e;
+    }
+
+    [data-theme="light"] {
+      --bg: #e8ecf4;
+      --bg-card: #ffffff;
+      --bg-elevated: #ffffff;
+      --bg-hover: #dde3ef;
+      --accent: #e50914;
+      --accent-soft: rgba(229,9,20,0.14);
+      --accent-hover: #c40812;
+      --text: #0a0c12;
+      --text-muted: #4a5163;
+      --text-dim: #7a8296;
+      --border: rgba(15,25,50,0.12);
+      --border-strong: rgba(15,25,50,0.2);
+      --shadow: 0 10px 36px rgba(15,30,60,0.12), 0 2px 8px rgba(15,30,60,0.06);
+      --success: #059669;
+    }
+    [data-theme="light"] body {
+      background:
+        radial-gradient(1100px 560px at 8% -8%, rgba(229,9,20,0.13), transparent 55%),
+        radial-gradient(900px 480px at 92% 0%, rgba(79,70,229,0.14), transparent 52%),
+        radial-gradient(700px 400px at 50% 100%, rgba(14,165,233,0.08), transparent 50%),
+        linear-gradient(180deg, #eef1f8 0%, #e4e9f3 45%, #e8ecf4 100%);
+      color: var(--text);
+      background-attachment: fixed;
+    }
+    [data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(15,25,50,0.22); }
+    [data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: rgba(15,25,50,0.35); }
+
+    /* NAV */
+    [data-theme="light"] .navbar {
+      background: linear-gradient(to bottom, rgba(238,241,248,0.95) 0%, transparent 100%);
+    }
+    [data-theme="light"] .navbar.scrolled {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid rgba(15,25,50,0.1);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 10px 36px rgba(15,30,60,0.1);
+    }
+    [data-theme="light"] .logo {
+      color: #0a0c12 !important;
+      -webkit-text-fill-color: #0a0c12;
+      letter-spacing: 2.5px;
+    }
+    [data-theme="light"] .nav-links a { color: #4a5163; }
+    [data-theme="light"] .nav-links a:hover { color: #0a0c12; }
+    [data-theme="light"] .nav-links a.active { color: #0a0c12 !important; font-weight: 700; }
+    [data-theme="light"] .nav-links a.active::after {
+      background: linear-gradient(90deg, #e50914, #ff4d4d);
+      height: 3px;
+      border-radius: 2px;
+    }
+    [data-theme="light"] .search-box {
+      background: #fff;
+      border: 1.5px solid rgba(15,25,50,0.14);
+      box-shadow: 0 2px 8px rgba(15,30,60,0.06);
+    }
+    [data-theme="light"] .search-box:focus-within {
+      background: #fff;
+      border-color: #e50914;
+      box-shadow: 0 0 0 4px rgba(229,9,20,0.15), 0 4px 16px rgba(15,30,60,0.08);
+    }
+    [data-theme="light"] .search-box input { color: #0a0c12; }
+    [data-theme="light"] .search-box input::placeholder { color: #7a8296; }
+    [data-theme="light"] .icon-btn {
+      background: #fff;
+      color: #0a0c12;
+      border: 1.5px solid rgba(15,25,50,0.14);
+      box-shadow: 0 2px 8px rgba(15,30,60,0.06);
+      transition: all 0.2s;
+    }
+    [data-theme="light"] .icon-btn:hover {
+      background: #f0f3fa;
+      border-color: rgba(15,25,50,0.22);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(15,30,60,0.1);
+    }
+    [data-theme="light"] .btn-upload {
+      box-shadow: 0 6px 22px rgba(229,9,20,0.38), 0 2px 4px rgba(229,9,20,0.2);
+    }
+
+    /* HERO */
+    [data-theme="light"] .hero-bg {
+      background:
+        linear-gradient(0deg, #e8ecf4 0%, rgba(232,236,244,0.55) 32%, transparent 58%),
+        linear-gradient(90deg, rgba(232,236,244,0.97) 0%, rgba(232,236,244,0.6) 34%, transparent 68%),
+        linear-gradient(180deg, rgba(15,25,50,0.28) 0%, transparent 48%),
+        url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=90') center/cover no-repeat !important;
+    }
+    [data-theme="light"] .hero-title {
+      color: #0a0c12;
+      text-shadow: 0 2px 20px rgba(255,255,255,0.7);
+    }
+    [data-theme="light"] .hero-desc { color: #2e3444; font-weight: 450; }
+    [data-theme="light"] .hero-meta { color: #4a5163; }
+    [data-theme="light"] .hero-meta .tag {
+      background: rgba(15,25,50,0.1);
+      color: #2e3444;
+      border: 1px solid rgba(15,25,50,0.12);
+      font-weight: 600;
+    }
+    [data-theme="light"] .hero-badge {
+      box-shadow: 0 6px 24px rgba(229,9,20,0.45);
+    }
+    [data-theme="light"] .btn-play {
+      background: #0a0c12;
+      color: #fff;
+      box-shadow: 0 10px 32px rgba(15,25,50,0.28);
+    }
+    [data-theme="light"] .btn-play:hover {
+      background: #1a1f2e;
+      transform: scale(1.03);
+    }
+    [data-theme="light"] .btn-secondary-hero {
+      background: rgba(255,255,255,0.88);
+      color: #0a0c12;
+      border: 1.5px solid rgba(15,25,50,0.14);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(15,30,60,0.08);
+      font-weight: 650;
+    }
+    [data-theme="light"] .btn-secondary-hero:hover {
+      background: #fff;
+      border-color: rgba(15,25,50,0.22);
+    }
+
+    /* STATS */
+    [data-theme="light"] .stat-item {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(15,25,50,0.1);
+      box-shadow: 0 8px 28px rgba(15,30,60,0.1);
+    }
+    [data-theme="light"] .stat-value { color: #0a0c12; }
+    [data-theme="light"] .stat-label { color: #4a5163; font-weight: 500; }
+
+    /* CATEGORIES */
+    [data-theme="light"] .cat-pill {
+      background: #fff;
+      border: 1.5px solid rgba(15,25,50,0.12);
+      color: #4a5163;
+      box-shadow: 0 2px 6px rgba(15,30,60,0.05);
+      font-weight: 550;
+    }
+    [data-theme="light"] .cat-pill:hover {
+      background: #f0f3fa;
+      color: #0a0c12;
+      border-color: rgba(15,25,50,0.2);
+      box-shadow: 0 4px 14px rgba(15,30,60,0.1);
+    }
+    [data-theme="light"] .cat-pill.active {
+      background: linear-gradient(135deg, #e50914 0%, #ff2d3a 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 20px rgba(229,9,20,0.35);
+      font-weight: 700;
+    }
+
+    /* CARDS */
+    [data-theme="light"] .card {
+      background: #fff;
+      border: 1.5px solid rgba(15,25,50,0.08);
+      box-shadow: 0 4px 16px rgba(15,30,60,0.07), 0 1px 3px rgba(15,30,60,0.04);
+    }
+    [data-theme="light"] .card:hover {
+      border-color: rgba(229,9,20,0.25);
+      box-shadow: 0 16px 48px rgba(15,30,60,0.16), 0 0 0 1px rgba(229,9,20,0.12);
+    }
+    [data-theme="light"] .card-title { color: #0a0c12; font-weight: 650; }
+    [data-theme="light"] .card-meta { color: #4a5163; }
+    [data-theme="light"] .card-thumb { background: #d8dee9; }
+    [data-theme="light"] .top10-num {
+      box-shadow: 0 4px 14px rgba(15,30,60,0.18), 0 0 0 1px rgba(15,25,50,0.06);
+    }
+    [data-theme="light"] .row-title { color: #0a0c12; }
+    [data-theme="light"] .row-count {
+      background: rgba(15,25,50,0.08);
+      color: #4a5163;
+    }
+    [data-theme="light"] .see-all { color: #4a5163; font-weight: 550; }
+    [data-theme="light"] .see-all:hover { color: #e50914; }
+    [data-theme="light"] .empty-row {
+      border-color: rgba(15,25,50,0.15);
+      color: #4a5163;
+      background: rgba(255,255,255,0.7);
+    }
+
+    /* MODALS */
+    [data-theme="light"] .modal-overlay {
+      background: rgba(10,15,30,0.5);
+      backdrop-filter: blur(10px);
+    }
+    [data-theme="light"] .modal {
+      background: #fff;
+      border: 1.5px solid rgba(15,25,50,0.1);
+      box-shadow: 0 28px 90px rgba(15,30,60,0.22), 0 0 0 1px rgba(255,255,255,0.6) inset;
+    }
+    [data-theme="light"] .modal-header h2 { color: #0a0c12; }
+    [data-theme="light"] .modal-header p { color: #4a5163; }
+    [data-theme="light"] .modal-close {
+      background: #f0f3fa;
+      border: 1.5px solid rgba(15,25,50,0.12);
+      color: #0a0c12;
+    }
+    [data-theme="light"] .modal-close:hover {
+      background: #e4e9f3;
+      border-color: rgba(15,25,50,0.2);
+    }
+    [data-theme="light"] .modal-footer {
+      border-top-color: rgba(15,25,50,0.1);
+    }
+    [data-theme="light"] .btn-cancel {
+      color: #0a0c12;
+      border: 1.5px solid rgba(15,25,50,0.16);
+      background: #f5f7fb;
+      font-weight: 550;
+    }
+    [data-theme="light"] .btn-cancel:hover {
+      background: #e8ecf4;
+      border-color: rgba(15,25,50,0.24);
+    }
+
+    /* FORMS */
+    [data-theme="light"] .form-group input,
+    [data-theme="light"] .form-group select,
+    [data-theme="light"] .file-name-input,
+    [data-theme="light"] .file-category,
+    [data-theme="light"] .season-select,
+    [data-theme="light"] .episode-row input[type="text"],
+    [data-theme="light"] #seriesTitle,
+    [data-theme="light"] #seriesCategory,
+    [data-theme="light"] #seriesDesc,
+    [data-theme="light"] #defaultCategory {
+      background: #eef1f8 !important;
+      color: #0a0c12 !important;
+      border: 1.5px solid rgba(15,25,50,0.14) !important;
+    }
+    [data-theme="light"] .form-group input:focus,
+    [data-theme="light"] .file-name-input:focus,
+    [data-theme="light"] #seriesTitle:focus,
+    [data-theme="light"] #seriesDesc:focus {
+      border-color: #e50914 !important;
+      box-shadow: 0 0 0 4px rgba(229,9,20,0.15);
+      background: #fff !important;
+    }
+    [data-theme="light"] .drop-zone {
+      background: linear-gradient(180deg, #f5f7fc 0%, #e8ecf4 100%);
+      border: 2px dashed rgba(15,25,50,0.2);
+    }
+    [data-theme="light"] .drop-zone:hover,
+    [data-theme="light"] .drop-zone.dragover {
+      border-color: #e50914;
+      background: linear-gradient(180deg, rgba(229,9,20,0.05) 0%, rgba(229,9,20,0.1) 100%);
+      box-shadow: 0 0 0 4px rgba(229,9,20,0.1);
+    }
+    [data-theme="light"] .drop-zone-title { color: #0a0c12; }
+    [data-theme="light"] .drop-zone-hint { color: #4a5163; }
+    [data-theme="light"] .drop-btn {
+      background: #fff;
+      color: #0a0c12;
+      border: 1.5px solid rgba(15,25,50,0.16);
+      box-shadow: 0 2px 8px rgba(15,30,60,0.06);
+      font-weight: 600;
+    }
+    [data-theme="light"] .drop-btn:hover {
+      background: #f0f3fa;
+      border-color: rgba(15,25,50,0.24);
+    }
+    [data-theme="light"] .drop-btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 14px rgba(229,9,20,0.3);
+    }
+    [data-theme="light"] .file-item,
+    [data-theme="light"] .season-block {
+      background: #eef1f8;
+      border: 1.5px solid rgba(15,25,50,0.1);
+    }
+    [data-theme="light"] .file-thumb-btn {
+      background: #e0e5f0;
+      border-color: rgba(15,25,50,0.16);
+      color: #4a5163;
+    }
+    [data-theme="light"] .file-list-header { color: #4a5163; }
+    [data-theme="light"] .file-list-header strong { color: #0a0c12; }
+    [data-theme="light"] .batch-options {
+      background: #eef1f8;
+      border: 1.5px solid rgba(15,25,50,0.1);
+    }
+    [data-theme="light"] .batch-options label { color: #4a5163; font-weight: 550; }
+    [data-theme="light"] .upload-tabs {
+      background: #e0e5f0;
+    }
+    [data-theme="light"] .upload-tab { color: #4a5163; font-weight: 550; }
+    [data-theme="light"] .upload-tab.active {
+      background: #fff;
+      color: #0a0c12;
+      box-shadow: 0 2px 8px rgba(15,30,60,0.1);
+      font-weight: 700;
+    }
+    [data-theme="light"] .type-btn {
+      background: #eef1f8;
+      color: #4a5163;
+      border: 1.5px solid rgba(15,25,50,0.12);
+      font-weight: 600;
+    }
+    [data-theme="light"] .type-btn.active {
+      background: #fff;
+      color: #0a0c12;
+      border-color: #e50914;
+      box-shadow: 0 0 0 3px rgba(229,9,20,0.12), 0 2px 8px rgba(15,30,60,0.06);
+      font-weight: 700;
+    }
+    [data-theme="light"] .mini-btn {
+      background: #fff;
+      color: #0a0c12;
+      border: 1.5px solid rgba(15,25,50,0.14);
+      font-weight: 600;
+    }
+    [data-theme="light"] .episode-row {
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(15,25,50,0.06);
+    }
+    [data-theme="light"] .progress-bar-bg { background: rgba(15,25,50,0.12); }
+    [data-theme="light"] .progress-text { color: #4a5163; }
+
+    /* SETTINGS */
+    [data-theme="light"] .lang-option,
+    [data-theme="light"] .theme-option {
+      background: #eef1f8;
+      color: #0a0c12;
+      border: 1.5px solid rgba(15,25,50,0.12);
+    }
+    [data-theme="light"] .lang-option:hover,
+    [data-theme="light"] .theme-option:hover {
+      background: #e0e5f0;
+      border-color: rgba(15,25,50,0.2);
+    }
+    [data-theme="light"] .lang-option.active,
+    [data-theme="light"] .theme-option.active {
+      background: #fff;
+      border-color: #e50914;
+      box-shadow: 0 0 0 4px rgba(229,9,20,0.14), 0 4px 12px rgba(15,30,60,0.08);
+    }
+    [data-theme="light"] .lang-option .lang-native,
+    [data-theme="light"] .theme-option .theme-desc { color: #4a5163; }
+    [data-theme="light"] .settings-section-title { color: #4a5163; font-weight: 600; }
+
+    /* SERIES DETAIL */
+    [data-theme="light"] .series-info h2 { color: #0a0c12; }
+    [data-theme="light"] .series-meta { color: #4a5163; }
+    [data-theme="light"] .series-desc { color: #2e3444; }
+    [data-theme="light"] .series-hero-fade {
+      background: linear-gradient(0deg, #ffffff 0%, transparent 55%) !important;
+    }
+    [data-theme="light"] .episode-item:hover { background: rgba(15,25,50,0.05); }
+    [data-theme="light"] .ep-title { color: #0a0c12; font-weight: 650; }
+    [data-theme="light"] .ep-dur { color: #4a5163; }
+    [data-theme="light"] .ep-num { color: #7a8296; font-weight: 700; }
+    [data-theme="light"] .ep-play {
+      background: rgba(15,25,50,0.08);
+      color: #0a0c12;
+    }
+    [data-theme="light"] .episode-item:hover .ep-play {
+      background: #e50914;
+      color: #fff;
+    }
+
+    /* TOAST & FOOTER */
+    [data-theme="light"] .toast {
+      background: #fff;
+      color: #0a0c12;
+      border: 1.5px solid rgba(15,25,50,0.12);
+      box-shadow: 0 14px 44px rgba(15,30,60,0.16);
+      font-weight: 550;
+    }
+    [data-theme="light"] footer {
+      color: #7a8296;
+      border-top-color: rgba(15,25,50,0.1);
+    }
+    [data-theme="light"] .player-overlay { background: rgba(0,0,0,0.94); }
+
+    /* === LIGHT THEME: force readable text everywhere === */
+    [data-theme="light"] .lang-option,
+    [data-theme="light"] .theme-option {
+      background: #eef1f8 !important;
+      color: #0a0c12 !important;
+      border: 1.5px solid rgba(15,25,50,0.14) !important;
+    }
+    [data-theme="light"] .lang-option .lang-name,
+    [data-theme="light"] .theme-option .theme-name {
+      color: #0a0c12 !important;
+    }
+    [data-theme="light"] .lang-option .lang-native,
+    [data-theme="light"] .theme-option .theme-desc {
+      color: #4a5163 !important;
+    }
+    [data-theme="light"] .lang-option.active,
+    [data-theme="light"] .theme-option.active {
+      background: #fff !important;
+      color: #0a0c12 !important;
+      border-color: #e50914 !important;
+      box-shadow: 0 0 0 4px rgba(229,9,20,0.14), 0 4px 12px rgba(15,30,60,0.08) !important;
+    }
+    [data-theme="light"] .lang-option:hover,
+    [data-theme="light"] .theme-option:hover {
+      background: #e0e5f0 !important;
+      color: #0a0c12 !important;
+    }
+    [data-theme="light"] .settings-section-title {
+      color: #4a5163 !important;
+    }
+    [data-theme="light"] .modal-header h2,
+    [data-theme="light"] .modal-header p,
+    [data-theme="light"] .modal {
+      color: #0a0c12;
+    }
+    [data-theme="light"] .modal-close {
+      background: #eef1f8 !important;
+      border: 1.5px solid rgba(15,25,50,0.14) !important;
+      color: #0a0c12 !important;
+    }
+    [data-theme="light"] .btn-cancel {
+      color: #0a0c12 !important;
+      background: #eef1f8 !important;
+      border: 1.5px solid rgba(15,25,50,0.16) !important;
+    }
+    [data-theme="light"] .icon-btn {
+      background: #fff !important;
+      color: #0a0c12 !important;
+      border: 1.5px solid rgba(15,25,50,0.14) !important;
+    }
+    [data-theme="light"] .file-list-header strong { color: #0a0c12 !important; }
+    [data-theme="light"] .file-list-header { color: #4a5163 !important; }
+    [data-theme="light"] .file-name-input,
+    [data-theme="light"] .file-category,
+    [data-theme="light"] .season-select,
+    [data-theme="light"] .episode-row input[type="text"],
+    [data-theme="light"] #seriesTitle,
+    [data-theme="light"] #seriesCategory,
+    [data-theme="light"] #seriesDesc,
+    [data-theme="light"] #defaultCategory,
+    [data-theme="light"] .batch-options select {
+      background: #eef1f8 !important;
+      color: #0a0c12 !important;
+      border-color: rgba(15,25,50,0.14) !important;
+    }
+    [data-theme="light"] #seriesCover { color: #0a0c12 !important; }
+    [data-theme="light"] .type-btn { color: #4a5163 !important; }
+    [data-theme="light"] .type-btn.active { color: #0a0c12 !important; }
+    [data-theme="light"] .upload-tab { color: #4a5163 !important; }
+    [data-theme="light"] .upload-tab.active { color: #0a0c12 !important; background: #fff !important; }
+    [data-theme="light"] .mini-btn { color: #0a0c12 !important; background: #fff !important; }
+    [data-theme="light"] .drop-zone-title { color: #0a0c12 !important; }
+    [data-theme="light"] .drop-zone-hint { color: #4a5163 !important; }
+    [data-theme="light"] .drop-btn { color: #0a0c12 !important; }
+    [data-theme="light"] .drop-btn.primary { color: #fff !important; }
+    [data-theme="light"] .see-all { color: #4a5163 !important; }
+    [data-theme="light"] .see-all:hover { color: #e50914 !important; }
+    [data-theme="light"] .stat-value { color: #0a0c12 !important; }
+    [data-theme="light"] .row-title { color: #0a0c12 !important; }
+    [data-theme="light"] .card-title { color: #0a0c12 !important; }
+    [data-theme="light"] .toast { color: #0a0c12 !important; }
+    [data-theme="light"] .season-header strong { color: #0a0c12 !important; }
+    [data-theme="light"] .file-meta { color: #4a5163 !important; }
+    [data-theme="light"] .file-thumb-btn { color: #4a5163 !important; }
+    [data-theme="light"] .file-thumb-btn:hover { color: #0a0c12 !important; }
+    [data-theme="light"] .progress-text { color: #4a5163 !important; }
+    [data-theme="light"] .batch-options label { color: #4a5163 !important; }
+    [data-theme="light"] .ep-file-label { color: #c40812 !important; background: rgba(229,9,20,0.1) !important; border-color: rgba(229,9,20,0.25) !important; }
+    [data-theme="light"] .ep-file-label.has-file { color: #059669 !important; background: rgba(5,150,105,0.12) !important; border-color: rgba(5,150,105,0.3) !important; }
+    [data-theme="light"] .series-info h2 { color: #0a0c12 !important; }
+    [data-theme="light"] .ep-title { color: #0a0c12 !important; }
+    [data-theme="light"] .ep-play { color: #0a0c12 !important; background: rgba(15,25,50,0.08) !important; }
+    [data-theme="light"] .episode-item:hover .ep-play { color: #fff !important; background: #e50914 !important; }
+    [data-theme="light"] .nav-links a:hover { color: #0a0c12 !important; }
+    [data-theme="light"] .cat-pill:hover { color: #0a0c12 !important; }
+
+    .theme-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+    .theme-option {
+      padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border);
+      background: rgba(0,0,0,0.3); color: #fff; cursor: pointer; text-align: left;
+      font-family: inherit; transition: all 0.2s;
+    }
+    .theme-option:hover { background: rgba(255,255,255,0.06); }
+    .theme-option.active {
+      border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.12);
+    }
+    .theme-option .theme-name { font-size: 14px; font-weight: 700; display: block; }
+    .theme-option .theme-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .settings-section { margin-bottom: 22px; }
+    .settings-section-title {
+      font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 4px;
+    }
+
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 52px;
+      background: linear-gradient(to bottom, rgba(5,5,7,0.98) 0%, transparent 100%);
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .navbar.scrolled {
+      background: rgba(5,5,7,0.94);
+      backdrop-filter: blur(28px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      padding: 11px 52px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+    }
+    .nav-left { display: flex; align-items: center; gap: 44px; }
+    .logo {
+      font-size: 28px; font-weight: 900; letter-spacing: 2.5px;
+      text-decoration: none; color: #ffffff !important;
+      background: none !important;
+      -webkit-text-fill-color: #ffffff;
+    }
+    .nav-links { display: flex; gap: 26px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 13.5px; font-weight: 500; transition: color 0.2s;
+      position: relative; padding: 4px 0;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active {
+      color: #ffffff !important;
+      font-weight: 600;
+    }
+    .nav-links a.active::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 2px; background: #ffffff; border-radius: 2px;
+    }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .search-box {
+      display: flex; align-items: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 50px; padding: 8px 16px; gap: 10px;
+      transition: all 0.25s; width: 200px;
+    }
+    .search-box:focus-within {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.2);
+      width: 260px;
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .search-box input {
+      background: transparent; border: none; outline: none;
+      color: #fff; font-size: 13px; width: 100%; font-family: inherit;
+    }
+    .search-box input::placeholder { color: var(--text-dim); }
+    .btn-upload {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      padding: 10px 20px; border-radius: 50px;
+      font-size: 13px; font-weight: 600; border: none;
+      cursor: pointer; transition: all 0.25s; font-family: inherit;
+      box-shadow: 0 4px 20px rgba(229,9,20,0.35);
+    }
+    .btn-upload:hover {
+      background: var(--accent-hover); transform: translateY(-1px);
+      box-shadow: 0 6px 28px rgba(229,9,20,0.45);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative; height: 92vh; min-height: 560px;
+      display: flex; align-items: flex-end; padding-bottom: 100px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(0deg, var(--bg) 0%, transparent 48%),
+        linear-gradient(90deg, rgba(5,5,7,0.97) 0%, rgba(5,5,7,0.55) 38%, transparent 68%),
+        url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=90') center/cover no-repeat;
+      animation: heroZoom 35s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.12); }
+    }
+    .hero-content {
+      position: relative; z-index: 2; padding: 0 56px; max-width: 620px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: linear-gradient(135deg, var(--accent), #ff4d4d);
+      color: #fff; font-size: 11px; font-weight: 700;
+      padding: 6px 14px; border-radius: 6px; margin-bottom: 18px;
+      letter-spacing: 0.7px; text-transform: uppercase;
+      box-shadow: 0 4px 24px rgba(229,9,20,0.45);
+    }
+    .hero-title {
+      font-size: 64px; font-weight: 900; letter-spacing: -1.8px;
+      margin-bottom: 14px; line-height: 1.05; color: #fff;
+      text-shadow: 0 6px 50px rgba(0,0,0,0.7);
+    }
+    .hero-meta {
+      display: flex; gap: 12px; align-items: center;
+      font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .hero-meta .match { color: var(--success); font-weight: 700; }
+    .hero-meta .tag {
+      background: rgba(255,255,255,0.1); padding: 3px 9px;
+      border-radius: 5px; font-size: 11.5px; font-weight: 600;
+    }
+    .hero-desc {
+      font-size: 16px; color: #c8c8d4; margin-bottom: 30px;
+      line-height: 1.65; max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-play {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; color: #000; padding: 13px 28px;
+      border-radius: 10px; font-size: 15px; font-weight: 700;
+      border: none; cursor: pointer; transition: all 0.25s; font-family: inherit;
+      box-shadow: 0 8px 32px rgba(255,255,255,0.12);
+    }
+    .btn-play:hover { background: #eee; transform: scale(1.03); }
+    .btn-secondary-hero {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.1); color: #fff;
+      padding: 13px 24px; border-radius: 10px;
+      font-size: 14.5px; font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer; transition: all 0.25s; font-family: inherit;
+      backdrop-filter: blur(12px); text-decoration: none;
+    }
+    .btn-secondary-hero:hover { background: rgba(255,255,255,0.18); transform: scale(1.03); }
+
+    /* STATS */
+    .stats-bar {
+      display: flex; gap: 32px; padding: 0 52px; margin-top: -40px;
+      position: relative; z-index: 5; margin-bottom: 20px;
+    }
+    .stat-item {
+      background: rgba(14,14,20,0.85); backdrop-filter: blur(16px);
+      border: 1px solid var(--border); border-radius: 14px;
+      padding: 16px 24px; min-width: 140px;
+    }
+    .stat-value { font-size: 24px; font-weight: 800; color: #fff; }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    /* CATEGORIES */
+    .categories {
+      padding: 20px 52px 12px;
+      display: flex; gap: 9px; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .categories::-webkit-scrollbar { display: none; }
+    .cat-pill {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted); padding: 8px 18px;
+      border-radius: 50px; font-size: 13px; font-weight: 500;
+      cursor: pointer; transition: all 0.25s;
+      white-space: nowrap; font-family: inherit;
+    }
+    .cat-pill:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .cat-pill.active {
+      background: #fff; color: #000; border-color: #fff; font-weight: 600;
+    }
+
+    /* ROWS */
+    .row { margin: 36px 0 8px; padding: 0 52px; }
+    .row-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 16px;
+    }
+    .row-title {
+      font-size: 21px; font-weight: 700;
+      display: flex; align-items: center; gap: 10px; letter-spacing: -0.3px;
+    }
+    .row-count {
+      font-size: 13px; color: var(--text-dim); font-weight: 500;
+      background: rgba(255,255,255,0.05); padding: 2px 10px; border-radius: 20px;
+    }
+    .see-all {
+      color: var(--text-muted); font-size: 13px; background: none;
+      border: none; cursor: pointer; font-weight: 500; transition: color 0.2s;
+      font-family: inherit;
+    }
+    .see-all:hover { color: #fff; }
+    .row-slider {
+      display: flex; gap: 14px; overflow-x: auto;
+      scroll-behavior: smooth; padding: 8px 4px 22px;
+      scrollbar-width: none;
+    }
+    .row-slider::-webkit-scrollbar { display: none; }
+
+    /* CARDS */
+    .card {
+      flex: 0 0 260px; background: var(--bg-card);
+      border-radius: var(--radius); overflow: hidden;
+      cursor: pointer; transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+      position: relative; border: 1px solid transparent;
+    }
+    .card:hover {
+      transform: scale(1.06) translateY(-7px); z-index: 20;
+      box-shadow: var(--shadow); border-color: var(--border-strong);
+    }
+    .card-thumb {
+      position: relative; aspect-ratio: 16/9; overflow: hidden; background: #14141c;
+    }
+    .card-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .card:hover .card-thumb img { transform: scale(1.09); }
+    .card-duration {
+      position: absolute; bottom: 9px; right: 9px;
+      background: rgba(0,0,0,0.88); color: #fff;
+      font-size: 11px; font-weight: 600; padding: 3px 7px; border-radius: 5px;
+    }
+    .card-badge {
+      position: absolute; top: 9px; left: 9px;
+      background: var(--accent); color: #fff;
+      font-size: 10px; font-weight: 700; padding: 3px 8px;
+      border-radius: 5px; text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .card-badge.tirs { background: #9b1b1b; }
+    .card-badge.aksiyon { background: #e05a00; }
+    .card-badge.dram { background: #3a5fcf; }
+    .card-badge.klasik { background: #c9a227; }
+    .card-badge.komedi { background: #2a9d4a; }
+    .card-badge.belgefilm { background: #1a9b9b; }
+    .card-badge.romantik { background: #c23a6b; }
+    .card-badge.muzik { background: #7b4bc4; }
+    .card-badge.my { background: #0ea5e9; }
+    .card-badge.local { background: linear-gradient(135deg, #0ea5e9, #6366f1); }
+    .card-play-overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,0.4);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .card:hover .card-play-overlay { opacity: 1; }
+    .card-play-icon {
+      width: 48px; height: 48px; background: rgba(255,255,255,0.95);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: #000; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .card-info { padding: 13px 15px 16px; }
+    .card-title {
+      font-size: 14px; font-weight: 600; margin-bottom: 4px; line-height: 1.35;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      overflow: hidden; color: #eeeef4;
+    }
+    .card-meta { font-size: 12px; color: var(--text-muted); display: flex; gap: 8px; align-items: center; }
+    .card-delete {
+      position: absolute; top: 9px; right: 9px;
+      width: 28px; height: 28px; background: rgba(0,0,0,0.7);
+      border: none; border-radius: 50%; color: #fff; font-size: 12px;
+      cursor: pointer; opacity: 0; transition: opacity 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card:hover .card-delete { opacity: 1; }
+    .card-delete:hover { background: var(--accent); }
+
+    .top10 .card { flex: 0 0 240px; position: relative; }
+    .top10-num {
+      position: absolute; top: 10px; right: 10px; z-index: 6;
+      min-width: 28px; height: 28px; padding: 0 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; line-height: 1;
+      font-variant-numeric: tabular-nums;
+      border-radius: 999px;
+      color: #fff;
+      letter-spacing: -0.3px;
+      pointer-events: none;
+      backdrop-filter: blur(12px) saturate(1.4);
+      -webkit-backdrop-filter: blur(12px) saturate(1.4);
+      box-shadow:
+        0 2px 8px rgba(0,0,0,0.28),
+        0 0 0 1px rgba(255,255,255,0.12) inset;
+      transition: transform 0.2s ease;
+    }
+    .card:hover .top10-num { transform: scale(1.06); }
+    .top10-num.rank-1 {
+      background: linear-gradient(135deg, #fff3a0 0%, #ffd54a 40%, #f0b429 100%);
+      color: #3d2a00;
+      box-shadow:
+        0 4px 18px rgba(240,180,41,0.55),
+        0 0 0 1.5px rgba(255,230,120,0.5) inset,
+        0 1px 0 rgba(255,255,255,0.6) inset;
+    }
+    .top10-num.rank-2 {
+      background: linear-gradient(135deg, #f8fafc 0%, #c8d0dc 45%, #8b98a8 100%);
+      color: #1e293b;
+      box-shadow:
+        0 4px 16px rgba(100,116,139,0.4),
+        0 0 0 1.5px rgba(255,255,255,0.45) inset,
+        0 1px 0 rgba(255,255,255,0.7) inset;
+    }
+    .top10-num.rank-3 {
+      background: linear-gradient(135deg, #ffc28a 0%, #e07a3a 50%, #b84a18 100%);
+      color: #fff;
+      box-shadow:
+        0 4px 16px rgba(184,74,24,0.45),
+        0 0 0 1.5px rgba(255,200,140,0.35) inset,
+        0 1px 0 rgba(255,255,255,0.25) inset;
+    }
+    .top10-num.rank-4, .top10-num.rank-5 {
+      background: linear-gradient(135deg, rgba(50,50,62,0.92), rgba(28,28,38,0.95));
+      color: #f1f5f9;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow:
+        0 3px 12px rgba(0,0,0,0.35),
+        0 0 0 1px rgba(255,255,255,0.08) inset;
+    }
+    .top10-num.rank-6, .top10-num.rank-7, .top10-num.rank-8,
+    .top10-num.rank-9, .top10-num.rank-10 {
+      background: linear-gradient(135deg, rgba(36,36,46,0.88), rgba(18,18,26,0.92));
+      color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow:
+        0 2px 10px rgba(0,0,0,0.3),
+        0 0 0 1px rgba(255,255,255,0.06) inset;
+    }
+    [data-theme="light"] .top10-num.rank-1 {
+      box-shadow:
+        0 4px 16px rgba(240,180,41,0.4),
+        0 0 0 1.5px rgba(255,230,120,0.55) inset;
+    }
+    [data-theme="light"] .top10-num.rank-4,
+    [data-theme="light"] .top10-num.rank-5,
+    [data-theme="light"] .top10-num.rank-6,
+    [data-theme="light"] .top10-num.rank-7,
+    [data-theme="light"] .top10-num.rank-8,
+    [data-theme="light"] .top10-num.rank-9,
+    [data-theme="light"] .top10-num.rank-10 {
+      background: linear-gradient(135deg, #3f4a5c, #1e293b);
+      color: #f1f5f9;
+      border: none;
+      box-shadow: 0 3px 12px rgba(15,30,60,0.22);
+    }
+
+    .empty-row {
+      padding: 48px 24px; text-align: center; color: var(--text-muted);
+      font-size: 14px; border: 1px dashed var(--border); border-radius: 14px;
+      width: 100%;
+    }
+    .empty-row button {
+      background: var(--accent); color: #fff; border: none;
+      padding: 11px 22px; border-radius: 10px; cursor: pointer;
+      font-weight: 600; margin-top: 14px; font-family: inherit; font-size: 13px;
+    }
+    .empty-row button:hover { background: var(--accent-hover); }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+      z-index: 2000; display: none; align-items: center; justify-content: center;
+      padding: 20px; backdrop-filter: blur(16px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: var(--bg-elevated); border-radius: 20px;
+      width: 100%; max-width: 680px; max-height: 92vh;
+      border: 1px solid var(--border); overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+      animation: modalIn 0.35s cubic-bezier(0.16,1,0.3,1);
+      display: flex; flex-direction: column;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.94) translateY(24px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-header {
+      padding: 28px 32px 0; display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .modal-header h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.4px; }
+    .modal-header p { font-size: 13.5px; color: var(--text-muted); margin-top: 4px; }
+    .modal-close {
+      width: 36px; height: 36px; background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border); border-radius: 50%;
+      color: #fff; font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.12); }
+    .modal-body { padding: 24px 32px; overflow-y: auto; flex: 1; }
+
+    .upload-tabs {
+      display: flex; gap: 4px; background: rgba(0,0,0,0.3);
+      border-radius: 12px; padding: 4px; margin-bottom: 24px;
+    }
+    .upload-tab {
+      flex: 1; padding: 10px; text-align: center; font-size: 13px;
+      font-weight: 600; border-radius: 9px; cursor: pointer;
+      background: transparent; border: none; color: var(--text-muted);
+      font-family: inherit; transition: all 0.2s;
+    }
+    .upload-tab.active { background: var(--bg-hover); color: #fff; }
+
+    .drop-zone {
+      border: 2px dashed rgba(255,255,255,0.12);
+      border-radius: 16px; padding: 48px 28px;
+      text-align: center; cursor: pointer;
+      transition: all 0.3s; background: rgba(255,255,255,0.015);
+      position: relative;
+    }
+    .drop-zone:hover, .drop-zone.dragover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .drop-zone-icon { font-size: 48px; margin-bottom: 14px; opacity: 0.9; }
+    .drop-zone-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .drop-zone-hint { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
+    .drop-zone-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .drop-btn {
+      padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;
+      border: 1px solid var(--border-strong); background: rgba(255,255,255,0.06);
+      color: #fff; cursor: pointer; font-family: inherit; transition: all 0.2s;
+    }
+    .drop-btn:hover { background: rgba(255,255,255,0.12); }
+    .drop-btn.primary { background: var(--accent); border-color: var(--accent); }
+    .drop-btn.primary:hover { background: var(--accent-hover); }
+    .drop-zone input[type="file"] { display: none; }
+
+    .file-list {
+      margin-top: 20px; max-height: 280px; overflow-y: auto;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .file-item {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(0,0,0,0.35); border-radius: 12px;
+      padding: 12px 14px; border: 1px solid var(--border);
+      animation: fadeSlide 0.3s ease;
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .file-thumb {
+      width: 64px; height: 40px; border-radius: 6px; object-fit: cover;
+      background: #1a1a24; flex-shrink: 0;
+    }
+    .file-info { flex: 1; min-width: 0; }
+    .file-name-input {
+      width: 100%; background: #0c0c12; border: 1px solid var(--border);
+      border-radius: 7px; padding: 6px 10px; color: #fff; font-size: 13px;
+      font-weight: 600; font-family: inherit; outline: none;
+      transition: border-color 0.2s;
+    }
+    .file-name-input:focus {
+      border-color: rgba(229,9,20,0.5);
+      box-shadow: 0 0 0 2px rgba(229,9,20,0.12);
+    }
+    .file-meta { font-size: 11.5px; color: var(--text-muted); margin-top: 4px; }
+    .file-category {
+      width: 110px; background: #0c0c12; border: 1px solid var(--border);
+      border-radius: 8px; padding: 7px 10px; color: #fff; font-size: 12px;
+      font-family: inherit; outline: none; flex-shrink: 0;
+    }
+    .file-thumb-btn {
+      width: 64px; height: 40px; border-radius: 6px; border: 1px dashed rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.04); color: #aaa; font-size: 10px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      overflow: hidden; position: relative; font-family: inherit; padding: 0;
+    }
+    .file-thumb-btn img { width: 100%; height: 100%; object-fit: cover; }
+    .file-thumb-btn:hover { border-color: var(--accent); color: #fff; }
+    .file-thumb-btn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .file-remove {
+      width: 30px; height: 30px; background: rgba(255,255,255,0.05);
+      border: none; border-radius: 50%; color: #ff6b6b; cursor: pointer;
+      font-size: 14px; display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; flex-shrink: 0;
+    }
+    .file-remove:hover { background: rgba(229,9,20,0.2); }
+
+    .file-list-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 10px; font-size: 13px; color: var(--text-muted);
+    }
+    .file-list-header strong { color: #fff; }
+
+    .batch-options {
+      display: flex; gap: 12px; align-items: center; margin-bottom: 16px;
+      padding: 14px 16px; background: rgba(0,0,0,0.25); border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .batch-options label { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+    .batch-options select {
+      flex: 1; background: #0c0c12; border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; color: #fff; font-size: 13px;
+      font-family: inherit; outline: none;
+    }
+
+    .modal-footer {
+      padding: 18px 32px 28px; display: flex; gap: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .btn-cancel {
+      flex: 1; background: transparent; border: 1px solid var(--border);
+      color: #fff; padding: 13px; border-radius: 12px;
+      font-size: 14px; cursor: pointer; font-family: inherit; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .btn-cancel:hover { background: rgba(255,255,255,0.05); }
+    .btn-confirm {
+      flex: 1.4; background: var(--accent); border: none; color: #fff;
+      padding: 13px; border-radius: 12px; font-size: 14px; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-confirm:hover { background: var(--accent-hover); }
+    .btn-confirm:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .upload-progress { display: none; margin-top: 16px; }
+    .upload-progress.active { display: block; }
+    .progress-bar-bg {
+      height: 6px; background: rgba(255,255,255,0.08);
+      border-radius: 3px; overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%; background: linear-gradient(90deg, var(--accent), #ff6b6b);
+      border-radius: 3px; width: 0%; transition: width 0.3s ease;
+    }
+    .progress-text {
+      font-size: 12px; color: var(--text-muted); margin-top: 8px; text-align: center;
+    }
+
+    
+    /* SERIES */
+    .card-badge.dizi { background: #6366f1; }
+    .type-toggle { display: flex; gap: 8px; margin-bottom: 16px; }
+    .type-btn {
+      flex: 1; padding: 12px; border-radius: 10px; border: 1px solid var(--border);
+      background: rgba(0,0,0,0.25); color: var(--text-muted); font-weight: 600;
+      font-size: 13px; cursor: pointer; font-family: inherit; transition: all 0.2s;
+    }
+    .type-btn.active { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.25); }
+    .season-block {
+      background: rgba(0,0,0,0.3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px; margin-bottom: 12px;
+    }
+    .season-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .season-header strong { font-size: 14px; }
+    .mini-btn {
+      padding: 5px 10px; border-radius: 6px; border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06); color: #fff; font-size: 11px;
+      cursor: pointer; font-family: inherit; font-weight: 600; margin-left: 4px;
+    }
+    .mini-btn.danger { color: #ff6b6b; }
+    .episode-row {
+      display: flex; align-items: center; gap: 8px; padding: 8px;
+      background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 6px;
+    }
+    .episode-row input[type="text"] {
+      flex: 1; background: #0c0c12; border: 1px solid var(--border);
+      border-radius: 6px; padding: 7px 10px; color: #fff; font-size: 12px; font-family: inherit;
+    }
+    .ep-file-label {
+      font-size: 11px; padding: 6px 10px; border-radius: 6px;
+      background: rgba(229,9,20,0.2); color: #ff8a8a; cursor: pointer;
+      white-space: nowrap; border: 1px solid rgba(229,9,20,0.3);
+    }
+    .ep-file-label.has-file { background: rgba(34,197,94,0.15); color: #4ade80; border-color: rgba(34,197,94,0.3); }
+    .ep-file-label input { display: none; }
+    .series-hero { position: relative; height: 200px; overflow: hidden; }
+    .series-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .series-hero-fade {
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, #15151f 0%, transparent 55%);
+    }
+    .series-info { padding: 0 28px 12px; margin-top: -36px; position: relative; z-index: 2; }
+    .series-info h2 { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+    .series-meta { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+    .series-desc { font-size: 14px; color: #c0c0cc; margin-bottom: 12px; line-height: 1.5; }
+    .season-select {
+      background: #0c0c12; border: 1px solid var(--border); border-radius: 8px;
+      padding: 10px 14px; color: #fff; font-size: 14px; font-weight: 600;
+      font-family: inherit; margin-bottom: 12px; min-width: 150px;
+    }
+    .episode-list { max-height: 320px; overflow-y: auto; padding: 0 28px 20px; }
+    .episode-item {
+      display: flex; gap: 12px; align-items: center; padding: 10px;
+      border-radius: 10px; cursor: pointer; transition: background 0.2s;
+    }
+    .episode-item:hover { background: rgba(255,255,255,0.05); }
+    .ep-num { width: 26px; text-align: center; font-weight: 700; color: var(--text-dim); }
+    .ep-thumb { width: 110px; height: 62px; border-radius: 6px; object-fit: cover; background: #1a1a24; flex-shrink: 0; }
+    .ep-info { flex: 1; min-width: 0; }
+    .ep-title { font-size: 14px; font-weight: 600; }
+    .ep-dur { font-size: 12px; color: var(--text-muted); }
+    .ep-play {
+      width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1);
+      border: none; color: #fff; cursor: pointer; font-size: 13px;
+    }
+    .episode-item:hover .ep-play { background: #fff; color: #000; }
+    .modal.modal-wide { max-width: 820px; }
+
+    
+    .lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+    .lang-option {
+      padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border);
+      background: rgba(0,0,0,0.3); color: #fff; cursor: pointer; text-align: left;
+      font-family: inherit; transition: all 0.2s;
+    }
+    .lang-option:hover { background: rgba(255,255,255,0.06); }
+    .lang-option.active {
+      border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.12);
+    }
+    .lang-option .lang-name { font-size: 14px; font-weight: 700; display: block; }
+    .lang-option .lang-native { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    /* PLAYER */
+    .player-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.97);
+      z-index: 3000; display: none; align-items: center; justify-content: center;
+      padding: 24px; flex-direction: column;
+    }
+    .player-overlay.active { display: flex; }
+    .player-container { width: 100%; max-width: 1120px; position: relative; }
+    .player-container video {
+      width: 100%; aspect-ratio: 16/9; border: none;
+      border-radius: 14px; background: #000;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+    .player-title {
+      color: #fff; font-size: 22px; font-weight: 700;
+      margin-bottom: 16px; text-align: center;
+      opacity: 0; transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+    .player-overlay.show-controls .player-title { opacity: 1; }
+    .player-close {
+      position: absolute; top: 14px; right: 14px; z-index: 20;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 50%; color: #fff; font-size: 18px;
+      cursor: pointer; transition: all 0.25s ease;
+      opacity: 0; pointer-events: none;
+      backdrop-filter: blur(10px);
+    }
+    .player-overlay.show-controls .player-close {
+      opacity: 1; pointer-events: auto;
+    }
+    .player-close:hover {
+      background: var(--accent); border-color: var(--accent);
+      transform: scale(1.12);
+    }
+    .player-no-url {
+      color: var(--text-muted); text-align: center;
+      padding: 90px 24px; font-size: 15px; line-height: 1.7;
+    }
+    .player-no-url button {
+      background: var(--accent); color: #fff; border: none;
+      padding: 12px 24px; border-radius: 10px; cursor: pointer;
+      font-weight: 600; margin-top: 16px; font-family: inherit;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 36px; left: 50%; transform: translateX(-50%) translateY(120px);
+      background: var(--bg-elevated); color: #fff; padding: 14px 28px;
+      border-radius: 50px; font-size: 14px; font-weight: 500;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.55);
+      border: 1px solid var(--border); z-index: 9999;
+      opacity: 0; transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+      display: flex; align-items: center; gap: 10px; max-width: 90vw;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    footer {
+      margin-top: 70px; padding: 40px 52px;
+      border-top: 1px solid var(--border);
+      text-align: center; color: var(--text-dim); font-size: 13px;
+    }
+
+    @media (max-width: 1100px) {
+      .navbar, .categories, .row, .hero-content, footer, .stats-bar {
+        padding-left: 28px; padding-right: 28px;
+      }
+      .navbar.scrolled { padding-left: 28px; padding-right: 28px; }
+      .hero-title { font-size: 48px; }
+      .card { flex: 0 0 230px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .logo { font-size: 24px; }
+      .btn-upload span.label { display: none; }
+      .stats-bar { display: none; }
+      .hero { height: 75vh; min-height: 420px; padding-bottom: 60px; }
+      .hero-title { font-size: 36px; }
+      .hero-desc { font-size: 14px; }
+      .card { flex: 0 0 185px; }
+      .row-title { font-size: 18px; }
+      .search-box { width: 140px; }
+      .search-box:focus-within { width: 180px; }
+      .top10-num { min-width: 26px; height: 26px; font-size: 11px; padding: 0 7px; }
+      .modal { max-width: 100%; border-radius: 16px 16px 0 0; }
+      .file-category { width: 100px; }
+    }
+    @media (max-width: 480px) {
+      .navbar, .categories, .row, .hero-content, footer {
+        padding-left: 14px; padding-right: 14px;
+      }
+      .navbar.scrolled { padding-left: 14px; padding-right: 14px; }
+      .hero-title { font-size: 28px; }
+      .hero-btns { flex-direction: column; }
+      .btn-play, .btn-secondary-hero { justify-content: center; }
+      .card { flex: 0 0 155px; }
+      .search-box { display: none; }
+      .modal-body, .modal-header, .modal-footer { padding-left: 18px; padding-right: 18px; }
+      .batch-options { flex-direction: column; align-items: stretch; }
+      .file-item { flex-wrap: wrap; }
+      .file-category { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="#" class="logo">KURD</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="active" data-nav="home" data-i18n="home" onclick="setNavActive('home'); filterCategory('all'); window.scrollTo({top:0,behavior:'smooth'}); return false;">Destpêk</a></li>
+        <li><a href="#categories" data-nav="categories" data-i18n="categories" onclick="setNavActive('categories'); filterCategory('all'); document.getElementById('categories').scrollIntoView({behavior:'smooth'}); return false;">Kategorî</a></li>
+        <li><a href="#new-row" data-nav="new" data-i18n="nav_new" onclick="setNavActive('new'); goToSection('new'); return false;">Nû</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <span style="opacity:0.5;font-size:13px">🔍</span>
+        <input type="text" id="searchInput" placeholder="Lê bigere..." data-i18n-placeholder="search" oninput="filterVideos()">
+      </div>
+      <button class="icon-btn" onclick="openSettings()" title="Settings" id="btnSettings" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:16px;cursor:pointer;">⚙</button>
+      <button class="btn-upload" onclick="openUploadModal()">
+        <span style="font-size:16px">＋</span>
+        <span class="label" data-i18n="upload">Zêde Bike</span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ Nû 2026</div>
+      <h1 class="hero-title">KURD</h1>
+      <div class="hero-meta">
+        <span class="match">%98 Match</span>
+        <span class="tag">HD</span>
+        <span class="tag">Kurmancî</span>
+        <span>Fîlm · Vîdeo · Çand</span>
+      </div>
+      <p class="hero-desc">Her cûre fîlm û vîdeo – tirs, aksîyon, klasîk, belgefilm û zêdetir. Bi zimanê xwe, ji bo te.</p>
+      <div class="hero-btns">
+        <a href="#new-row" class="btn-play" onclick="goToSection('new'); return false;"><span>▶</span> <span data-i18n="watch">Temaşe Bike</span></a>
+        <a href="#top10-row" class="btn-secondary-hero" onclick="document.getElementById('top10-row').scrollIntoView({behavior:'smooth'}); return false;">Top 10</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar" id="statsBar">
+    <div class="stat-item">
+      <div class="stat-value" id="statTotal">0</div>
+      <div class="stat-label">Hemû Vîdeo</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" id="statLocal">0</div>
+      <div class="stat-label">Yên Zêdekirî</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value" id="statCats">12</div>
+      <div class="stat-label">Kategorî</div>
+    </div>
+  </div>
+
+  <div class="categories" id="categories">
+    <div class="cat-pill active" data-cat="all" onclick="filterCategory('all')">Hemû</div>
+    <div class="cat-pill" data-cat="new" onclick="filterCategory('new')">Nû</div>
+    <div class="cat-pill" data-cat="tirs" onclick="filterCategory('tirs')">Tirs</div>
+    <div class="cat-pill" data-cat="gerilim" onclick="filterCategory('gerilim')">Gerîlîm</div>
+    <div class="cat-pill" data-cat="aksiyon" onclick="filterCategory('aksiyon')">Aksîyon</div>
+    <div class="cat-pill" data-cat="dram" onclick="filterCategory('dram')">Dram</div>
+    <div class="cat-pill" data-cat="klasik" onclick="filterCategory('klasik')">Klasîk</div>
+    <div class="cat-pill" data-cat="komedi" onclick="filterCategory('komedi')">Komedî</div>
+    <div class="cat-pill" data-cat="belgefilm" onclick="filterCategory('belgefilm')">Belgefîlm</div>
+    <div class="cat-pill" data-cat="romantik" onclick="filterCategory('romantik')">Romantîk</div>
+    <div class="cat-pill" data-cat="zarok" onclick="filterCategory('zarok')">Zarok</div>
+    <div class="cat-pill" data-cat="muzik" onclick="filterCategory('muzik')">Muzîk</div>
+  </div>
+
+  <div class="row top10" id="top10-row">
+    <div class="row-header">
+      <h2 class="row-title"><span>🔥</span> Top 10</h2>
+    </div>
+    <div class="row-slider" id="grid-top10"></div>
+  </div>
+
+  <div class="row" id="new-row">
+    <div class="row-header"><h2 class="row-title"><span>✨</span> Videoyên Nû</h2></div>
+    <div class="row-slider" id="grid-new"></div>
+  </div>
+  <div class="row" id="tirs-row">
+    <div class="row-header"><h2 class="row-title"><span>👻</span> Tirs</h2></div>
+    <div class="row-slider" id="grid-tirs"></div>
+  </div>
+  <div class="row" id="gerilim-row">
+    <div class="row-header"><h2 class="row-title"><span>🔪</span> Gerîlîm</h2></div>
+    <div class="row-slider" id="grid-gerilim"></div>
+  </div>
+  <div class="row" id="aksiyon-row">
+    <div class="row-header"><h2 class="row-title"><span>💥</span> Aksîyon</h2></div>
+    <div class="row-slider" id="grid-aksiyon"></div>
+  </div>
+  <div class="row" id="dram-row">
+    <div class="row-header"><h2 class="row-title"><span>🎭</span> Dram</h2></div>
+    <div class="row-slider" id="grid-dram"></div>
+  </div>
+  <div class="row" id="klasik-row">
+    <div class="row-header"><h2 class="row-title"><span>🎬</span> Klasîk</h2></div>
+    <div class="row-slider" id="grid-klasik"></div>
+  </div>
+  <div class="row" id="komedi-row">
+    <div class="row-header"><h2 class="row-title"><span>😂</span> Komedî</h2></div>
+    <div class="row-slider" id="grid-komedi"></div>
+  </div>
+  <div class="row" id="belgefilm-row">
+    <div class="row-header"><h2 class="row-title"><span>🌍</span> Belgefîlm</h2></div>
+    <div class="row-slider" id="grid-belgefilm"></div>
+  </div>
+  <div class="row" id="romantik-row">
+    <div class="row-header"><h2 class="row-title"><span>💕</span> Romantîk</h2></div>
+    <div class="row-slider" id="grid-romantik"></div>
+  </div>
+  <div class="row" id="zarok-row">
+    <div class="row-header"><h2 class="row-title"><span>🧒</span> Zarok</h2></div>
+    <div class="row-slider" id="grid-zarok"></div>
+  </div>
+  <div class="row" id="muzik-row">
+    <div class="row-header"><h2 class="row-title"><span>🎵</span> Muzîk</h2></div>
+    <div class="row-slider" id="grid-muzik"></div>
+  </div>
+<footer>
+    © 2026 KURD · Pelge & Zêdekirina Pirjimar · YouTube ne hewce ye · Hemû maf parastî ne
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="uploadModal">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h2>Video / Pelge Zêde Bike</h2>
+          <p>Yek vîdeo, gelek vîdeo an jî hemû pelgeyê hilbijêre</p>
+        </div>
+        <button class="modal-close" onclick="closeUploadModal()">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="type-toggle">
+          <button type="button" class="type-btn active" id="typeFilm" onclick="setContentType('film')">🎬 Fîlm</button>
+          <button type="button" class="type-btn" id="typeSeries" onclick="setContentType('series')">📺 Rêzefîlm (Dizi)</button>
+        </div>
+        <div id="filmMode">
+        <div class="upload-tabs">
+          <button class="upload-tab active" data-tab="files" onclick="switchTab('files')">📁 Dosye</button>
+          <button class="upload-tab" data-tab="folder" onclick="switchTab('folder')">📂 Pelge</button>
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+          <div class="drop-zone-icon" id="dropIcon">🎬</div>
+          <div class="drop-zone-title" id="dropTitle">Videoyan li vir bikişîne</div>
+          <div class="drop-zone-hint" id="dropHint">an jî bişkokan bikar bîne · MP4, WebM, MOV</div>
+          <div class="drop-zone-btns">
+            <button type="button" class="drop-btn primary" onclick="document.getElementById('fileInput').click()">Dosye Hilbijêre</button>
+            <button type="button" class="drop-btn" onclick="document.getElementById('folderInput').click()">Pelge Hilbijêre</button>
+          </div>
+          <input type="file" id="fileInput" accept="video/mp4,video/webm,video/quicktime,video/x-msvideo,video/*" multiple>
+          <input type="file" id="folderInput" webkitdirectory directory multiple>
+        </div>
+
+        <div class="batch-options" id="batchOptions" style="display:none;">
+          <label>Kategoriya bingehîn:</label>
+          <select id="defaultCategory">
+            <option value="new">Nû</option>
+            <option value="tirs">Tirs</option>
+            <option value="gerilim">Gerîlîm</option>
+            <option value="aksiyon">Aksîyon</option>
+            <option value="dram">Dram</option>
+            <option value="klasik">Klasîk</option>
+            <option value="komedi">Komedî</option>
+            <option value="belgefilm">Belgefîlm</option>
+            <option value="romantik">Romantîk</option>
+            <option value="zarok">Zarok</option>
+            <option value="muzik">Muzîk</option>
+            <option value="popular">Popûler</option>
+          </select>
+        </div>
+
+        <div id="fileListContainer" style="display:none;">
+          <div class="file-list-header">
+            <span><strong id="fileCount">0</strong> vîdeo hatine hilbijartin</span>
+            <button class="see-all" onclick="clearAllFiles()" style="color:#ff6b6b;">Hemû Paqij Bike</button>
+          </div>
+          <div class="file-list" id="fileList"></div>
+        </div>
+
+        <div class="upload-progress" id="uploadProgress">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+          <div class="progress-text" id="progressText">Amade dibe...</div>
+        </div>
+        </div><!-- /filmMode -->
+
+        <div id="seriesMode" style="display:none;">
+          <div class="form-group">
+            <label style="display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px;">Navê rêzefîlmê *</label>
+            <input type="text" id="seriesTitle" placeholder="Mînak: Game of Kurdi" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;margin-bottom:12px;">
+          </div>
+          <div class="form-group">
+            <label style="display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px;">Kategorî</label>
+            <select id="seriesCategory" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;margin-bottom:12px;"></select>
+          </div>
+          <div class="form-group">
+            <label style="display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px;">Kurte</label>
+            <input type="text" id="seriesDesc" placeholder="Kurteya rêzefîlmê..." style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;margin-bottom:12px;">
+          </div>
+          <div class="form-group">
+            <label style="display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px;">Kapak (wêne)</label>
+            <input type="file" id="seriesCover" accept="image/*" style="width:100%;color:var(--text);font-size:13px;margin-bottom:12px;">
+          </div>
+          <div id="seasonsContainer"></div>
+          <button type="button" class="mini-btn" onclick="addSeason()" style="margin-top:6px;">＋ Sezon Zêde Bike</button>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-cancel" onclick="closeUploadModal()">Betal Bike</button>
+        <button class="btn-confirm" id="confirmBtn" onclick="confirmUpload()">
+          <span id="confirmText">Zêde Bike</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+    
+  <!-- SETTINGS -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal" style="max-width:440px;">
+      <div class="modal-header">
+        <div>
+          <h2 data-i18n="settings">Mîheng</h2>
+          <p data-i18n="settings_sub">Zimanê rûpelê hilbijêre</p>
+        </div>
+        <button class="modal-close" onclick="closeSettings()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="settings-section">
+          <div class="settings-section-title" data-i18n="theme">Tema</div>
+          <div class="theme-grid" id="themeGrid">
+            <button type="button" class="theme-option" data-theme-opt="dark" onclick="setTheme('dark')">
+              <span class="theme-name" data-i18n="theme_dark">Tarî</span>
+              <span class="theme-desc" data-i18n="theme_dark_desc">Tema ya tarî</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-opt="light" onclick="setTheme('light')">
+              <span class="theme-name" data-i18n="theme_light">Ronî</span>
+              <span class="theme-desc" data-i18n="theme_light_desc">Tema ya ronî</span>
+            </button>
+          </div>
+        </div>
+        <div class="settings-section">
+        <div class="settings-section-title" data-i18n="language">Ziman</div>
+        <div class="lang-grid" id="langGrid">
+          <button type="button" class="lang-option" data-lang="ku" onclick="setLanguage('ku')">
+            <span class="lang-name">Kurmancî</span>
+            <span class="lang-native">Kurdî</span>
+          </button>
+          <button type="button" class="lang-option" data-lang="en" onclick="setLanguage('en')">
+            <span class="lang-name">English</span>
+            <span class="lang-native">English</span>
+          </button>
+          <button type="button" class="lang-option" data-lang="de" onclick="setLanguage('de')">
+            <span class="lang-name">Deutsch</span>
+            <span class="lang-native">Almancî</span>
+          </button>
+          <button type="button" class="lang-option" data-lang="tr" onclick="setLanguage('tr')">
+            <span class="lang-name">Türkçe</span>
+            <span class="lang-native">Tirkî</span>
+          </button>
+        </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" onclick="closeSettings()" data-i18n="close">Bigire</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERIES DETAIL -->
+  <div class="modal-overlay" id="seriesModal">
+    <div class="modal modal-wide">
+      <div style="position:absolute;right:12px;top:12px;z-index:5;">
+        <button class="modal-close" onclick="closeSeriesModal()">✕</button>
+      </div>
+      <div class="modal-body" id="seriesModalBody" style="padding:0;"></div>
+    </div>
+  </div>
+
+  <!-- PLAYER -->
+  <div class="player-overlay" id="playerModal">
+    <div class="player-container">
+      <div class="player-title" id="playerTitle"></div>
+      <div class="player-video-wrap" style="position:relative;">
+        <button class="player-close" onclick="closePlayer()" title="Vegere">✕</button>
+        <div id="playerContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN PASSWORD -->
+  <div class="modal-overlay" id="passwordModal">
+    <div class="modal" style="max-width:400px;">
+      <div class="modal-header">
+        <div>
+          <h2 data-i18n="admin_title">Rêveber</h2>
+          <p data-i18n="admin_sub">Ji bo zêdekirinê şîfre binivîse</p>
+        </div>
+        <button class="modal-close" onclick="closePasswordModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label style="display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px;" data-i18n="admin_password">Şîfre</label>
+          <input type="password" id="adminPasswordInput" placeholder="••••••••" autocomplete="off"
+            style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--text);font-size:15px;font-family:inherit;outline:none;"
+            onkeydown="if(event.key==='Enter'){event.preventDefault();checkAdminPassword();}">
+        </div>
+        <p id="passwordError" style="display:none;color:#ff6b6b;font-size:13px;margin-top:10px;" data-i18n="admin_wrong">Şîfre çewt e</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" onclick="closePasswordModal()" data-i18n="cancel">Betal Bike</button>
+        <button class="btn-confirm" onclick="checkAdminPassword()" data-i18n="admin_unlock">Veke</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const SAMPLE_VIDEOS = [
+      { id: 1, title: "Game of Kurdi", type: "series", category: "new", thumb: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80", duration: "2 Sezon", views: "120K", time: "1 hefte berê", badge: "Dizi", isLocal: false, desc: "Rêzefîlmeke epîk.", seasons: [ { number: 1, episodes: [ { title: "Destpêk", duration: "42:00", id: "demo_s1e1" }, { title: "Şerê Yekem", duration: "45:00", id: "demo_s1e2" }, { title: "Xiyanet", duration: "41:00", id: "demo_s1e3" } ] }, { number: 2, episodes: [ { title: "Veger", duration: "44:00", id: "demo_s2e1" }, { title: "Ava Sor", duration: "48:00", id: "demo_s2e2" } ] } ] },
+      { id: 2, title: "Stenbol û Dîrok", category: "new", thumb: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=500&q=80", duration: "6:15", views: "28K", time: "4 deqîqe berê", badge: "Nû", isLocal: false },
+      { id: 3, title: "Tabiata Kurdistanê", category: "belgefilm", thumb: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&q=80", duration: "10:23", views: "52K", time: "1 hefte berê", badge: "Belgefîlm", isLocal: false },
+      { id: 4, title: "Çirokên Berfê", category: "dram", thumb: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=500&q=80", duration: "7:36", views: "33K", time: "1 hefte berê", badge: "Dram", isLocal: false },
+      { id: 5, title: "Hêvîsê: Stêrk û Jiyan", category: "romantik", thumb: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500&q=80", duration: "9:12", views: "21K", time: "2 hefte berê", badge: "Romantîk", isLocal: false },
+      { id: 6, title: "Şeva Tarî", category: "tirs", thumb: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=500&q=80", duration: "14:22", views: "68K", time: "3 hefte berê", badge: "Tirs", isLocal: false },
+      { id: 7, title: "Xaniyê Xwedan", category: "tirs", thumb: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=500&q=80", duration: "11:05", views: "41K", time: "1 meh berê", badge: "Tirs", isLocal: false },
+      { id: 8, title: "Dengên Nenas", category: "tirs", thumb: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=500&q=80", duration: "9:48", views: "37K", time: "2 meh berê", badge: "Tirs", isLocal: false },
+      { id: 9, title: "Mirina Di Nav Daristanê", category: "tirs", thumb: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=500&q=80", duration: "13:17", views: "59K", time: "3 meh berê", badge: "Tirs", isLocal: false },
+      { id: 10, title: "Sir û Xiyanet", category: "gerilim", thumb: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&q=80", duration: "15:30", views: "72K", time: "2 hefte berê", badge: "Gerîlîm", isLocal: false },
+      { id: 11, title: "Şeva Xeter", category: "gerilim", thumb: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80", duration: "12:11", views: "48K", time: "1 meh berê", badge: "Gerîlîm", isLocal: false },
+      { id: 12, title: "Rêwîtiya Xeter", category: "gerilim", thumb: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80", duration: "10:55", views: "39K", time: "5 hefte berê", badge: "Gerîlîm", isLocal: false },
+      { id: 13, title: "Şerê Di Nav Çiyan", category: "aksiyon", thumb: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80", duration: "18:22", views: "95K", time: "1 hefte berê", badge: "Aksîyon", isLocal: false },
+      { id: 14, title: "Lehengên Kurdistanê", category: "aksiyon", thumb: "https://images.unsplash.com/photo-1518676590962-1e6c7e6e6c5c?w=500&q=80", duration: "14:08", views: "81K", time: "3 hefte berê", badge: "Aksîyon", isLocal: false },
+      { id: 15, title: "Operasyona Taybet", category: "aksiyon", thumb: "https://images.unsplash.com/photo-1535016120720-40c646be5580?w=500&q=80", duration: "13:30", views: "67K", time: "2 meh berê", badge: "Aksîyon", isLocal: false },
+      { id: 16, title: "Fîlmên Klasîk ên Kurdî", category: "klasik", thumb: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&q=80", duration: "22:15", views: "120K", time: "6 meh berê", badge: "Klasîk", isLocal: false },
+      { id: 17, title: "Dîroka Fîlmê", category: "klasik", thumb: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80", duration: "19:40", views: "98K", time: "8 meh berê", badge: "Klasîk", isLocal: false },
+      { id: 18, title: "Sinema ya Kevin", category: "klasik", thumb: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500&q=80", duration: "17:05", views: "88K", time: "1 sal berê", badge: "Klasîk", isLocal: false },
+      { id: 19, title: "Ken û Xewn", category: "komedi", thumb: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80", duration: "11:27", views: "55K", time: "3 hefte berê", badge: "Komedî", isLocal: false },
+      { id: 20, title: "Rojeke Baş", category: "komedi", thumb: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&q=80", duration: "8:54", views: "42K", time: "2 hefte berê", badge: "Komedî", isLocal: false },
+      { id: 21, title: "Jiyana Li Bajêr", category: "dram", thumb: "https://images.unsplash.com/photo-1474511320723-9a568737404b?w=500&q=80", duration: "12:30", views: "61K", time: "3 hefte berê", badge: "Dram", isLocal: false },
+      { id: 22, title: "Çem û Dicle", category: "belgefilm", thumb: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=500&q=80", duration: "6:48", views: "34K", time: "1 hefte berê", badge: "Belgefîlm", isLocal: false },
+      { id: 23, title: "Stranên Me", category: "muzik", thumb: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=500&q=80", duration: "4:20", views: "76K", time: "2 hefte berê", badge: "Muzîk", isLocal: false },
+      { id: 24, title: "Çîrokên Zarokan", category: "zarok", thumb: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&q=80", duration: "15:00", views: "29K", time: "1 meh berê", badge: "Zarok", isLocal: false },
+    ];
+
+    let videos = [];
+    const fileStore = new Map();
+    let pendingFiles = [];
+
+    function parseViews(v) {
+      if (v == null) return 0;
+      if (typeof v === 'number' && !isNaN(v)) return v;
+      const s = String(v).trim();
+      if (!s || s === 'Nû' || s === 'New' || s === 'Neu' || s === 'Yeni') return 0;
+      const m = s.match(/^([\d.]+)\s*([KkMm])?/);
+      if (!m) { const n = parseInt(s.replace(/\D/g,''), 10); return isNaN(n) ? 0 : n; }
+      let n = parseFloat(m[1]);
+      if (m[2] && m[2].toUpperCase() === 'K') n *= 1000;
+      if (m[2] && m[2].toUpperCase() === 'M') n *= 1000000;
+      return Math.round(n);
+    }
+    function formatViews(n) {
+      n = Math.max(0, Math.round(Number(n) || 0));
+      if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+      if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+      return String(n);
+    }
+    function loadViewStats() {
+      try {
+        const raw = localStorage.getItem('kurd_views');
+        return raw ? JSON.parse(raw) : {};
+      } catch(e) { return {}; }
+    }
+    function saveViewStats(stats) {
+      localStorage.setItem('kurd_views', JSON.stringify(stats));
+    }
+    function applyStoredViews() {
+      const stats = loadViewStats();
+      videos.forEach(v => {
+        const key = String(v.id);
+        if (stats[key] != null) {
+          v.viewCount = stats[key].views || 0;
+          v.clickCount = stats[key].clicks || 0;
+        } else {
+          v.viewCount = parseViews(v.views);
+          v.clickCount = v.clickCount || 0;
+        }
+        v.views = formatViews(v.viewCount);
+      });
+    }
+    function getScore(v) {
+      // Sıralama: sadece tıklama sayısı (ileride sunucu tarafı gerçek sayaçlarla değiştirilebilir)
+      return v.clickCount || 0;
+    }
+    function getRankedList() {
+      return [...videos].sort((a, b) => getScore(b) - getScore(a) || String(a.title||'').localeCompare(String(b.title||'')));
+    }
+    function trackClick(id) {
+      const v = videos.find(x => x.id === id || String(x.id) === String(id));
+      if (!v) return;
+      v.clickCount = (v.clickCount || 0) + 1;
+      const stats = loadViewStats();
+      stats[String(v.id)] = { views: v.viewCount || 0, clicks: v.clickCount };
+      saveViewStats(stats);
+      if (v.isLocal) saveMetas();
+      if (typeof renderAll === 'function') {
+        clearTimeout(window._rankTimer);
+        window._rankTimer = setTimeout(() => renderAll(), 350);
+      }
+    }
+    function trackView(id) {
+      // Oynatma = tıklama sayılır (Top 10 buna göre sıralanır)
+      trackClick(id);
+    }
+
+    (function init() {
+      const saved = localStorage.getItem('kurd_v5');
+      let userMetas = [];
+      if (saved) {
+        try { userMetas = JSON.parse(saved).filter(v => v.isLocal); } catch(e) {}
+      }
+      videos = [...userMetas, ...SAMPLE_VIDEOS];
+      applyStoredViews();
+    })();
+
+    function saveMetas() {
+      const metas = videos.filter(v => v.isLocal).map(v => ({
+        id: v.id, title: v.title, category: v.category, type: v.type || 'film',
+        thumb: v.thumb && v.thumb.startsWith('data:') ? v.thumb : null,
+        duration: v.duration, views: v.views, viewCount: v.viewCount || 0,
+        clickCount: v.clickCount || 0, time: v.time,
+        badge: v.badge, isLocal: true, size: v.size || null,
+        promotedPopular: !!v.promotedPopular,
+        desc: v.desc || null, seasons: v.seasons || null
+      }));
+      localStorage.setItem('kurd_v5', JSON.stringify(metas));
+    }
+
+    let BADGE_MAP = {
+      new: 'Nû', tirs: 'Tirs', gerilim: 'Gerîlîm', aksiyon: 'Aksîyon',
+      dram: 'Dram', klasik: 'Klasîk', komedi: 'Komedî', belgefilm: 'Belgefîlm',
+      romantik: 'Romantîk', zarok: 'Zarok', muzik: 'Muzîk', popular: 'Popûler'
+    };
+    function refreshBadgeMap() {
+      if (typeof t !== 'function') return;
+      BADGE_MAP = {
+        new: t('badge_new'), tirs: t('badge_tirs'), gerilim: t('badge_gerilim'), aksiyon: t('badge_aksiyon'),
+        dram: t('badge_dram'), klasik: t('badge_klasik'), komedi: t('badge_komedi'), belgefilm: t('badge_belgefilm'),
+        romantik: t('badge_romantik'), zarok: t('badge_zarok'), muzik: t('badge_muzik'), popular: t('badge_popular')
+      };
+    }
+    const BADGE_CLASS = {
+      tirs: 'tirs', gerilim: 'tirs', aksiyon: 'aksiyon', dram: 'dram',
+      klasik: 'klasik', komedi: 'komedi', belgefilm: 'belgefilm',
+      romantik: 'romantik', muzik: 'muzik'
+    };
+
+    function showToast(msg, ok = true) {
+      const el = document.getElementById('toast');
+      el.innerHTML = (ok ? '✅ ' : '⚠️ ') + msg;
+      el.className = 'toast show';
+      setTimeout(() => el.classList.remove('show'), 3500);
+    }
+
+    function formatSize(bytes) {
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(0) + ' KB';
+      return (bytes / 1024 / 1024).toFixed(1) + ' MB';
+    }
+
+    function formatDuration(sec) {
+      if (!sec || isNaN(sec)) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + String(s).padStart(2, '0');
+    }
+
+    function getVideoDuration(file) {
+      return new Promise(resolve => {
+        const url = URL.createObjectURL(file);
+        const v = document.createElement('video');
+        v.preload = 'metadata';
+        v.onloadedmetadata = () => { resolve(formatDuration(v.duration)); URL.revokeObjectURL(url); };
+        v.onerror = () => { resolve('0:00'); URL.revokeObjectURL(url); };
+        v.src = url;
+      });
+    }
+
+    function generateThumb(file) {
+      return new Promise(resolve => {
+        const url = URL.createObjectURL(file);
+        const v = document.createElement('video');
+        v.preload = 'metadata'; v.muted = true; v.playsInline = true;
+        v.onloadeddata = () => { v.currentTime = Math.min(1.5, v.duration / 4); };
+        v.onseeked = () => {
+          try {
+            const c = document.createElement('canvas');
+            c.width = 480; c.height = 270;
+            c.getContext('2d').drawImage(v, 0, 0, c.width, c.height);
+            resolve(c.toDataURL('image/jpeg', 0.75));
+          } catch(e) { resolve(null); }
+          URL.revokeObjectURL(url);
+        };
+        v.onerror = () => { resolve(null); URL.revokeObjectURL(url); };
+        setTimeout(() => { resolve(null); URL.revokeObjectURL(url); }, 4000);
+        v.src = url;
+      });
+    }
+
+    function createCard(video, isTop10 = false, rank = 0, showRankBadge = false) {
+      const isSeries = video.type === 'series';
+      const bc = isSeries ? 'dizi' : (BADGE_CLASS[video.category] || (video.isLocal ? 'local' : ''));
+      const badge = isSeries ? (typeof t==='function'?t('badge_dizi'):'Dizi') : (video.badge || (BADGE_MAP[video.category] || ''));
+      const thumb = video.thumb || 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&q=80';
+      const canDelete = video.isLocal;
+      const click = isSeries ? `openSeries(${video.id})` : `playVideo(${video.id})`;
+      const sCount = (video.seasons && video.seasons.length) || 0;
+      const eCount = typeof countEpisodes==='function' ? countEpisodes(video) : 0;
+      const dur = isSeries ? (sCount + ' ' + (typeof t==='function'?t('season'):'Sezon')) : (video.duration || '0:00');
+      const meta = isSeries
+        ? (typeof t==='function' ? t('series_card_meta').replace('{s}', sCount).replace('{e}', eCount) : (sCount + ' Sezon · ' + eCount + ' Beş'))
+        : (video.time || (typeof t==='function'?t('just_now'):'niha'));
+      let rankHtml = '';
+      if (isTop10 && rank > 0) {
+        rankHtml = `<div class="top10-num rank-${rank}">${rank}</div>`;
+      }
+      return `
+        <div class="card" data-category="${video.category}" data-title="${(video.title||'').toLowerCase()}" data-id="${video.id}">
+          <div class="card-thumb" onclick="${click}">
+            ${rankHtml}
+            <img src="${thumb}" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&q=80'">
+            ${badge ? `<span class="card-badge ${bc}">${badge}</span>` : ''}
+            <span class="card-duration">${dur}</span>
+            <div class="card-play-overlay"><div class="card-play-icon">▶</div></div>
+            ${canDelete ? `<button class="card-delete" onclick="event.stopPropagation(); deleteVideo(${video.id})" title="Jê bibe">🗑</button>` : ''}
+          </div>
+          <div class="card-info" onclick="${click}">
+            <div class="card-title">${video.title}</div>
+            <div class="card-meta"><span>${meta}</span></div>
+          </div>
+        </div>`;
+    }
+
+    function renderAll() {
+      const grids = {
+        new: document.getElementById('grid-new'),
+        tirs: document.getElementById('grid-tirs'),
+        gerilim: document.getElementById('grid-gerilim'),
+        aksiyon: document.getElementById('grid-aksiyon'),
+        dram: document.getElementById('grid-dram'),
+        klasik: document.getElementById('grid-klasik'),
+        komedi: document.getElementById('grid-komedi'),
+        belgefilm: document.getElementById('grid-belgefilm'),
+        romantik: document.getElementById('grid-romantik'),
+        zarok: document.getElementById('grid-zarok'),
+        muzik: document.getElementById('grid-muzik'),
+        top10: document.getElementById('grid-top10')
+      };
+      Object.values(grids).forEach(g => { if (g) g.innerHTML = ''; });
+
+      // Top 10: tıklama sayısına göre 1–10
+      const ranked = getRankedList();
+      ranked.slice(0, 10).forEach((v, i) => {
+        if (grids.top10) grids.top10.innerHTML += createCard(v, true, i + 1, false);
+      });
+
+      videos.forEach(v => {
+        let cat = (v.category === 'my' || !v.category || v.category === 'popular') ? 'new' : v.category;
+        const map = { new:'new', tirs:'tirs', gerilim:'gerilim', aksiyon:'aksiyon', dram:'dram', klasik:'klasik', komedi:'komedi', belgefilm:'belgefilm', romantik:'romantik', zarok:'zarok', muzik:'muzik' };
+        const key = map[cat];
+        if (key && grids[key]) grids[key].innerHTML += createCard(v);
+      });
+
+      document.getElementById('statTotal').textContent = videos.length;
+      document.getElementById('statLocal').textContent = videos.filter(v => v.isLocal).length;
+    }
+
+    function setNavActive(name) {
+      document.querySelectorAll('#navLinks a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('data-nav') === name);
+      });
+    }
+
+    function goToSection(cat) {
+      filterCategory('all');
+      setNavActive(cat === 'new' ? 'new' : 'home');
+      setTimeout(() => {
+        const el = document.getElementById(cat + '-row');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+      return false;
+    }
+
+    function updateNavOnScroll() {
+      const scrollY = window.scrollY;
+      const offset = 120;
+      const newRow = document.getElementById('new-row');
+      const categories = document.getElementById('categories');
+
+      if (newRow && scrollY + offset >= newRow.offsetTop) {
+        setNavActive('new');
+      } else if (categories && scrollY + offset >= categories.offsetTop) {
+        setNavActive('categories');
+      } else {
+        setNavActive('home');
+      }
+    }
+
+    function deleteVideo(id) {
+      if (!confirm(t('delete_confirm'))) return;
+      videos = videos.filter(v => v.id !== id);
+      fileStore.delete(id);
+      saveMetas();
+      renderAll();
+      showToast(t('toast_deleted'));
+    }
+
+    function filterCategory(cat) {
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      const pill = document.querySelector(`[data-cat="${cat}"]`);
+      if (pill) pill.classList.add('active');
+      document.querySelectorAll('.row').forEach(r => {
+        if (cat === 'all') r.style.display = 'block';
+        else r.style.display = r.id === cat + '-row' ? 'block' : 'none';
+      });
+      if (cat !== 'all') {
+        const t = document.getElementById('top10-row');
+        if (t) t.style.display = 'none';
+      }
+    }
+
+    function filterVideos() {
+      const q = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+      document.querySelectorAll('.card').forEach(c => {
+        const title = (c.getAttribute('data-title') || '').toLowerCase();
+        c.style.display = (!q || title.includes(q)) ? '' : 'none';
+      });
+      // Also show/hide rows that have visible cards when searching
+      if (q) {
+        document.querySelectorAll('.row').forEach(row => {
+          const visible = row.querySelectorAll('.card:not([style*="display: none"])').length;
+          const empty = row.querySelector('.empty-row');
+          if (empty) { row.style.display = 'block'; return; }
+          row.style.display = visible > 0 ? 'block' : 'none';
+        });
+        const top = document.getElementById('top10-row');
+        if (top) top.style.display = top.querySelectorAll('.card:not([style*="display: none"])').length ? 'block' : 'none';
+      } else {
+        // restore based on active category
+        const active = document.querySelector('.cat-pill.active');
+        if (active) filterCategory(active.getAttribute('data-cat'));
+      }
+    }
+
+    let playerHideTimer = null;
+
+    function showPlayerControls() {
+      const modal = document.getElementById('playerModal');
+      modal.classList.add('show-controls');
+      clearTimeout(playerHideTimer);
+      playerHideTimer = setTimeout(() => {
+        modal.classList.remove('show-controls');
+      }, 2800);
+    }
+
+    function playVideo(id) {
+      const video = videos.find(v => v.id === id);
+      if (!video) return;
+      trackView(id);
+      const modal = document.getElementById('playerModal');
+      document.getElementById('playerTitle').textContent = video.title;
+      const content = document.getElementById('playerContent');
+      content.innerHTML = '';
+
+      if (fileStore.has(id)) {
+        const blobUrl = URL.createObjectURL(fileStore.get(id));
+        content.innerHTML = `<video controls autoplay playsinline src="${blobUrl}" style="width:100%;aspect-ratio:16/9;border-radius:14px;background:#000;"></video>`;
+      } else if (video.url && video.url.startsWith('blob:')) {
+        content.innerHTML = `<video controls autoplay playsinline src="${video.url}" style="width:100%;aspect-ratio:16/9;border-radius:14px;background:#000;"></video>`;
+      } else {
+        content.innerHTML = `
+          <div class="player-no-url">
+            <div style="font-size:44px;margin-bottom:12px">📂</div>
+            ${t('player_no_url')}<br>
+            <button onclick="openUploadModal(); closePlayer();">${t('player_readd')}</button>
+          </div>`;
+      }
+
+      modal.classList.add('active');
+      showPlayerControls();
+    }
+
+    function closePlayer() {
+      const modal = document.getElementById('playerModal');
+      modal.classList.remove('active', 'show-controls');
+      clearTimeout(playerHideTimer);
+      const content = document.getElementById('playerContent');
+      const vid = content.querySelector('video');
+      if (vid && vid.src && vid.src.startsWith('blob:')) URL.revokeObjectURL(vid.src);
+      content.innerHTML = '';
+    }
+
+    // Mouse move → show ✕ button (top-right)
+    document.getElementById('playerModal').addEventListener('mousemove', showPlayerControls);
+    document.getElementById('playerModal').addEventListener('click', function(e) {
+      if (e.target === this) closePlayer(); // click outside video = close
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closePlayer();
+        if (typeof closeSeriesModal === 'function') closeSeriesModal();
+        if (typeof closeSettings === 'function') closeSettings();
+        if (typeof closePasswordModal === 'function') closePasswordModal();
+      }
+    });
+
+    // ===== ADMIN PASSWORD (sadece sen yükleyebilirsin) =====
+    // Şifreyi buradan değiştir:
+    const ADMIN_PASSWORD = 'kurd2026';
+
+    function isAdminUnlocked() {
+      try { return sessionStorage.getItem('kurd_admin') === '1'; } catch(e) { return false; }
+    }
+    function setAdminUnlocked(ok) {
+      try {
+        if (ok) sessionStorage.setItem('kurd_admin', '1');
+        else sessionStorage.removeItem('kurd_admin');
+      } catch(e) {}
+    }
+
+    function openUploadModal() {
+      if (!isAdminUnlocked()) {
+        openPasswordModal();
+        return;
+      }
+      openUploadModalUnlocked();
+    }
+
+    function openUploadModalUnlocked() {
+      document.getElementById('uploadModal').classList.add('active');
+      clearAllFiles();
+      seriesSeasons = [];
+      if (typeof setContentType === 'function') setContentType('film');
+      const st = document.getElementById('seriesTitle'); if (st) st.value = '';
+      const sd = document.getElementById('seriesDesc'); if (sd) sd.value = '';
+      const sc = document.getElementById('seriesCover'); if (sc) sc.value = '';
+      switchTab('files');
+    }
+
+    function openPasswordModal() {
+      // Seçilen dile göre metinleri güncelle
+      const pwH2 = document.querySelector('#passwordModal .modal-header h2');
+      const pwP = document.querySelector('#passwordModal .modal-header p');
+      const pwLabel = document.querySelector('#passwordModal .form-group label');
+      const pwErr = document.getElementById('passwordError');
+      const pwCancel = document.querySelector('#passwordModal .btn-cancel');
+      const pwConfirm = document.querySelector('#passwordModal .btn-confirm');
+      if (typeof t === 'function') {
+        if (pwH2) pwH2.textContent = t('admin_title');
+        if (pwP) pwP.textContent = t('admin_sub');
+        if (pwLabel) pwLabel.textContent = t('admin_password');
+        if (pwErr) { pwErr.textContent = t('admin_wrong'); pwErr.style.display = 'none'; }
+        if (pwCancel) pwCancel.textContent = t('cancel');
+        if (pwConfirm) pwConfirm.textContent = t('admin_unlock');
+      } else if (pwErr) {
+        pwErr.style.display = 'none';
+      }
+      const inp = document.getElementById('adminPasswordInput');
+      if (inp) { inp.value = ''; setTimeout(() => inp.focus(), 100); }
+      document.getElementById('passwordModal').classList.add('active');
+    }
+    function closePasswordModal() {
+      document.getElementById('passwordModal').classList.remove('active');
+      const inp = document.getElementById('adminPasswordInput');
+      if (inp) inp.value = '';
+    }
+    function checkAdminPassword() {
+      const inp = document.getElementById('adminPasswordInput');
+      const val = (inp && inp.value) ? inp.value.trim() : '';
+      if (val === ADMIN_PASSWORD) {
+        setAdminUnlocked(true);
+        closePasswordModal();
+        openUploadModalUnlocked();
+        if (typeof showToast === 'function') showToast(typeof t === 'function' ? t('admin_ok') : 'OK');
+      } else {
+        const err = document.getElementById('passwordError');
+        if (err) err.style.display = 'block';
+        if (inp) { inp.value = ''; inp.focus(); }
+        if (typeof showToast === 'function') showToast(typeof t === 'function' ? t('admin_wrong') : 'Wrong password', false);
+      }
+    }
+
+    function closeUploadModal() {
+      document.getElementById('uploadModal').classList.remove('active');
+      clearAllFiles();
+    }
+
+    function switchTab(tab) {
+      document.querySelectorAll('.upload-tab').forEach(tb => tb.classList.toggle('active', tb.dataset.tab === tab));
+      const icon = document.getElementById('dropIcon');
+      const title = document.getElementById('dropTitle');
+      const hint = document.getElementById('dropHint');
+      if (tab === 'folder') {
+        icon.textContent = '📂';
+        title.textContent = t('drop_title_folder');
+        hint.textContent = t('drop_hint_folder');
+      } else {
+        icon.textContent = '🎬';
+        title.textContent = t('drop_title_files');
+        hint.textContent = t('drop_hint_files');
+      }
+    }
+
+    const fileInput = document.getElementById('fileInput');
+    const folderInput = document.getElementById('folderInput');
+    const dropZone = document.getElementById('dropZone');
+
+    fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+    folderInput.addEventListener('change', () => handleFiles(folderInput.files));
+
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      const items = e.dataTransfer.items;
+      if (items) {
+        const files = [];
+        for (let i = 0; i < items.length; i++) {
+          const entry = items[i].webkitGetAsEntry?.();
+          if (entry) collectFiles(entry, files).then(() => handleFiles(files));
+          else if (items[i].kind === 'file') files.push(items[i].getAsFile());
+        }
+        if (files.length && !items[0].webkitGetAsEntry) handleFiles(files);
+      } else {
+        handleFiles(e.dataTransfer.files);
+      }
+    });
+
+    async function collectFiles(entry, list) {
+      if (entry.isFile) {
+        return new Promise(res => entry.file(f => { list.push(f); res(); }));
+      } else if (entry.isDirectory) {
+        const reader = entry.createReader();
+        const entries = await new Promise(res => reader.readEntries(res));
+        for (const e of entries) await collectFiles(e, list);
+      }
+    }
+
+    function isVideoFile(file) {
+      return file.type.startsWith('video/') || /\.(mp4|webm|mov|avi|mkv|m4v|ogg)$/i.test(file.name);
+    }
+
+    async function handleFiles(fileList) {
+      const files = Array.from(fileList).filter(isVideoFile);
+      if (!files.length) {
+        showToast(t('toast_no_video'), false);
+        return;
+      }
+
+      const defaultCat = document.getElementById('defaultCategory').value;
+      document.getElementById('batchOptions').style.display = 'flex';
+      document.getElementById('fileListContainer').style.display = 'block';
+      document.getElementById('confirmBtn').disabled = false;
+
+      for (const file of files) {
+        if (pendingFiles.some(p => p.file.name === file.name && p.file.size === file.size)) continue;
+        const id = Date.now() + Math.random();
+        const title = file.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' ');
+        const size = formatSize(file.size);
+        const item = { file, id, title, category: defaultCat, duration: '...', thumb: null, size };
+        pendingFiles.push(item);
+        renderPendingList();
+        const [duration, thumb] = await Promise.all([getVideoDuration(file), generateThumb(file)]);
+        item.duration = duration;
+        item.thumb = thumb;
+        renderPendingList();
+      }
+      updateConfirmBtn();
+    }
+
+    function renderPendingList() {
+      const list = document.getElementById('fileList');
+      document.getElementById('fileCount').textContent = pendingFiles.length;
+      const flHeader = document.querySelector('#fileListContainer .file-list-header span');
+      if (flHeader) flHeader.innerHTML = '<strong id="fileCount">' + pendingFiles.length + '</strong> ' + t('files_selected');
+      const clearBtn2 = document.querySelector('#fileListContainer .see-all');
+      if (clearBtn2) clearBtn2.textContent = t('clear_all');
+      list.innerHTML = pendingFiles.map((p, i) => `
+        <div class="file-item">
+          <label class="file-thumb-btn" title="${t('cover_pick')}">
+            ${p.thumb ? `<img src="${p.thumb}" alt="">` : t('cover_pick')}
+            <input type="file" accept="image/*" onchange="setCustomThumb(${i}, this)">
+          </label>
+          <div class="file-info">
+            <input type="text" class="file-name-input" value="${(p.title || '').replace(/"/g, '&quot;')}" 
+              placeholder="${t('video_name_ph')}" 
+              oninput="pendingFiles[${i}].title = this.value"
+              onchange="pendingFiles[${i}].title = this.value.trim() || pendingFiles[${i}].file.name.replace(/\\.[^/.]+$/, '')">
+            <div class="file-meta">${p.size} · ${p.duration}</div>
+          </div>
+          <select class="file-category" onchange="pendingFiles[${i}].category = this.value">
+            ${Object.entries(BADGE_MAP).map(([k,v]) => `<option value="${k}" ${p.category===k?'selected':''}>${v}</option>`).join('')}
+          </select>
+          <button class="file-remove" onclick="removePending(${i})">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function setCustomThumb(index, input) {
+      const file = input.files && input.files[0];
+      if (!file || !pendingFiles[index]) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        pendingFiles[index].thumb = reader.result;
+        pendingFiles[index].customThumb = true;
+        renderPendingList();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function removePending(index) {
+      pendingFiles.splice(index, 1);
+      renderPendingList();
+      updateConfirmBtn();
+      if (!pendingFiles.length) {
+        document.getElementById('batchOptions').style.display = 'none';
+        document.getElementById('fileListContainer').style.display = 'none';
+      }
+    }
+
+    function clearAllFiles() {
+      pendingFiles = [];
+      fileInput.value = '';
+      folderInput.value = '';
+      document.getElementById('fileList').innerHTML = '';
+      document.getElementById('fileListContainer').style.display = 'none';
+      document.getElementById('batchOptions').style.display = 'none';
+      document.getElementById('uploadProgress').classList.remove('active');
+      document.getElementById('confirmBtn').disabled = true;
+      document.getElementById('confirmText').textContent = t('confirm');
+      updateConfirmBtn();
+    }
+
+    function updateConfirmBtn() {
+      const btn = document.getElementById('confirmBtn');
+      if (!btn) return;
+      if (typeof contentType !== 'undefined' && contentType === 'series') {
+        btn.disabled = false;
+        document.getElementById('confirmText').textContent = t('confirm');
+        return;
+      }
+      const n = pendingFiles.length;
+      btn.disabled = n === 0;
+      document.getElementById('confirmText').textContent = n === 0 ? t('confirm') : (n === 1 ? t('confirm_one') : t('confirm_many').replace('{n}', n));
+    }
+
+    document.getElementById('defaultCategory').addEventListener('change', e => {
+      pendingFiles.forEach(p => p.category = e.target.value);
+      renderPendingList();
+    });
+
+    async function confirmUpload() {
+      if (typeof contentType !== 'undefined' && contentType === 'series') {
+        const title = (document.getElementById('seriesTitle') && document.getElementById('seriesTitle').value || '').trim();
+        if (!title) { showToast(t('toast_series_title'), false); return; }
+        if (!seriesSeasons.some(s => s.episodes && s.episodes.length)) { showToast(t('toast_series_ep'), false); return; }
+
+        let cover = null;
+        const coverEl = document.getElementById('seriesCover');
+        const coverFile = coverEl && coverEl.files && coverEl.files[0];
+        if (coverFile) {
+          cover = await new Promise(res => { const r = new FileReader(); r.onload = () => res(r.result); r.readAsDataURL(coverFile); });
+        } else {
+          for (const s of seriesSeasons) {
+            for (const e of s.episodes) { if (e.thumb) { cover = e.thumb; break; } }
+            if (cover) break;
+          }
+        }
+
+        const id = Date.now() + Math.random();
+        const seasons = seriesSeasons.map((s, si) => ({
+          number: s.number,
+          episodes: s.episodes.map((ep, ei) => {
+            const epId = id + '_s' + si + '_e' + ei;
+            if (ep.file) fileStore.set(epId, ep.file);
+            return { id: epId, title: ep.title || ('Beş ' + (ei+1)), duration: ep.duration || '0:00', thumb: ep.thumb || cover };
+          })
+        }));
+
+        const catEl = document.getElementById('seriesCategory');
+        const cat = catEl ? catEl.value : 'new';
+        videos.unshift({
+          id, title, type: 'series', category: cat,
+          thumb: cover || 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&q=80',
+          duration: seasons.length + ' Sezon', views: 'Nû', time: 'niha', badge: (typeof t==='function'?t('badge_dizi'):'Rêzefîlm'), isLocal: true,
+          desc: (document.getElementById('seriesDesc') && document.getElementById('seriesDesc').value || '').trim(),
+          seasons
+        });
+        saveMetas();
+        renderAll();
+        showToast(t('toast_series_ok'));
+        closeUploadModal();
+        goToSection('new');
+        return;
+      }
+
+      if (!pendingFiles.length) { showToast(t('toast_pick_video'), false); return; }
+      const btn = document.getElementById('confirmBtn');
+      if (btn) btn.disabled = true;
+      const progress = document.getElementById('uploadProgress');
+      const fill = document.getElementById('progressFill');
+      const ptext = document.getElementById('progressText');
+      if (progress) progress.classList.add('active');
+
+      const total = pendingFiles.length;
+      let done = 0;
+
+      for (const p of pendingFiles) {
+        if (ptext) ptext.textContent = t('processing') + ': ' + p.title + ' (' + (done + 1) + '/' + total + ')';
+        if (fill) fill.style.width = ((done / total) * 100) + '%';
+
+        const id = Date.now() + Math.random();
+        fileStore.set(id, p.file);
+
+        videos.unshift({
+          id,
+          title: p.title,
+          type: 'film',
+          category: p.category,
+          thumb: p.thumb || 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500&q=80',
+          duration: p.duration,
+          views: 'Nû',
+          time: 'niha',
+          badge: BADGE_MAP[p.category] || p.category,
+          isLocal: true,
+          size: p.size,
+          url: URL.createObjectURL(p.file)
+        });
+        done++;
+        if (fill) fill.style.width = ((done / total) * 100) + '%';
+        await new Promise(r => setTimeout(r, 60));
+      }
+
+      if (ptext) ptext.textContent = total + ' ' + t('upload_done');
+      if (fill) fill.style.width = '100%';
+      saveMetas();
+      renderAll();
+      showToast(total + ' ' + t('toast_added'));
+      filterCategory('all');
+      setTimeout(() => {
+        closeUploadModal();
+        goToSection('new');
+      }, 700);
+    }
+
+    
+    
+    // ===== I18N / SETTINGS =====
+    const I18N = {
+      ku: {
+        home: 'Destpêk', categories: 'Kategorî', nav_new: 'Nû', nav_popular: 'Popûler',
+        search: 'Lê bigere...', upload: 'Zêde Bike', settings: 'Mîheng', settings_sub: 'Ziman û tema hilbijêre',
+        language: 'Ziman',
+        theme: 'Tema', theme_dark: 'Tarî', theme_light: 'Ronî', theme_dark_desc: 'Tema ya tarî', theme_light_desc: 'Tema ya ronî', theme_changed: 'Tema hate guhertin', close: 'Bigire',
+        hero_badge: '✦ Nû 2026', hero_desc: 'Fîlm û rêzefîlm — sezon û beş. Bi zimanê xwe temaşe bike.',
+        hero_meta: 'Fîlm · Vîdeo · Çand',
+        watch: 'Temaşe Bike', popular: 'Popûler',
+        stat_all: 'Hemû Vîdeo', stat_added: 'Yên Zêdekirî', stat_series: 'Kategorî',
+        cat_all: 'Hemû', cat_new: 'Nû', cat_tirs: 'Tirs', cat_gerilim: 'Gerîlîm', cat_aksiyon: 'Aksîyon',
+        cat_dram: 'Dram', cat_klasik: 'Klasîk', cat_komedi: 'Komedî', cat_belgefilm: 'Belgefîlm',
+        cat_romantik: 'Romantîk', cat_zarok: 'Zarok', cat_muzik: 'Muzîk', cat_popular: 'Popûler',
+        row_top10: 'Top 10', row_new: 'Videoyên Nû', row_tirs: 'Tirs', row_gerilim: 'Gerîlîm',
+        row_aksiyon: 'Aksîyon', row_dram: 'Dram', row_klasik: 'Klasîk', row_komedi: 'Komedî',
+        row_belgefilm: 'Belgefîlm', row_romantik: 'Romantîk', row_zarok: 'Zarok', row_muzik: 'Muzîk',
+        row_popular: 'Herî Popûler',
+        footer: '© 2026 KURD · Fîlm û Rêzefîlm · Hemû maf parastî ne',
+        film: 'Fîlm', series: 'Rêzefîlm (Dizi)', season: 'Sezon', episode: 'Beş', episodes: 'beş',
+        add_season: '＋ Sezon Zêde Bike', add_ep: '＋ Beş', cancel: 'Betal Bike', confirm: 'Zêde Bike',
+        series_title: 'Navê rêzefîlmê', series_cat: 'Kategorî', series_desc: 'Kurte', series_cover: 'Kapak (wêne)',
+        lang_changed: 'Ziman hate guhertin',
+        upload_title: 'Video / Pelge Zêde Bike',
+        upload_sub: 'Yek vîdeo, gelek vîdeo an jî hemû pelgeyê hilbijêre',
+        tab_files: '📁 Dosye', tab_folder: '📂 Pelge',
+        drop_title_files: 'Videoyan li vir bikişîne',
+        drop_hint_files: 'an jî bişkokan bikar bîne · MP4, WebM, MOV',
+        drop_title_folder: 'Pelgeyê hilbijêre an bikişîne',
+        drop_hint_folder: 'Hemû vîdeoyên di pelgeyê de bixweber tên zêdekirin',
+        btn_pick_files: 'Dosye Hilbijêre', btn_pick_folder: 'Pelge Hilbijêre',
+        batch_cat: 'Kategoriya bingehîn:',
+        files_selected: 'vîdeo hatine hilbijartin',
+        clear_all: 'Hemû Paqij Bike',
+        confirm_one: '1 Vîdeo Zêde Bike',
+        confirm_many: '{n} Vîdeo Zêde Bike',
+        processing: 'Tê xebitandin',
+        upload_done: 'vîdeo bi serkeftî hatin zêdekirin!',
+        toast_added: 'vîdeo hatin zêdekirin',
+        toast_deleted: 'Vîdeo hate jêbirin',
+        toast_no_video: 'Dosyeya vîdeoyê ya derbasdar nehat dîtin',
+        toast_pick_video: 'Vîdeoyek hilbijêre',
+        toast_series_title: 'Navê rêzefîlmê binivîse',
+        toast_series_ep: 'Bi kêmî yek beş zêde bike',
+        toast_series_ok: 'Rêzefîlm hate zêdekirin',
+        delete_confirm: 'Tu dixwazî vî vîdeoyê jê bibî?',
+        player_no_url: 'Ev vîdeo niha nayê lîstin.<br>Dosyeyên herêmî tenê di vê danişînê de dixebitin.<br>Ger rûpel nûve kiribe, dîsa vîdeoyê zêde bike.',
+        player_readd: 'Dîsa Zêde Bike',
+        player_ep_no: 'Ev beş niha nayê lîstin.<br>Dosye tenê di vê danişînê de ye.',
+        series_placeholder: 'Mînak: Game of Kurdi',
+        series_desc_ph: 'Kurteya rêzefîlmê...',
+        ep_name_ph: 'Navê beşê',
+        ep_file: 'Dosye',
+        ep_file_ok: '✓ Dosye',
+        ep_empty: '「＋ Beş」 bitikîne',
+        season_empty: 'Vê sezonê de beş tune ne',
+        remove_season: 'Jê bibe',
+        cover_pick: '🖼 Kapak',
+        video_name_ph: 'Navê vîdeoyê...',
+        badge_new: 'Nû', badge_tirs: 'Tirs', badge_gerilim: 'Gerîlîm', badge_aksiyon: 'Aksîyon',
+        badge_dram: 'Dram', badge_klasik: 'Klasîk', badge_komedi: 'Komedî', badge_belgefilm: 'Belgefîlm',
+        badge_romantik: 'Romantîk', badge_zarok: 'Zarok', badge_muzik: 'Muzîk', badge_popular: 'Popûler',
+        badge_dizi: 'Rêzefîlm',
+        just_now: 'niha', views_new: 'Nû',
+        seasons_label: 'Sezon', episodes_label: 'Beş',
+        series_meta: '{s} Sezon · {c}',
+        series_card_meta: '{s} Sezon · {e} Beş',
+        admin_title: 'Rêveber',
+        admin_sub: 'Ji bo zêdekirinê şîfre binivîse',
+        admin_password: 'Şîfre',
+        admin_unlock: 'Veke',
+        admin_wrong: 'Şîfre çewt e',
+        admin_ok: 'Rêveber hat vekirin'
+      },
+      en: {
+        home: 'Home', categories: 'Categories', nav_new: 'New', nav_popular: 'Popular',
+        search: 'Search...', upload: 'Add', settings: 'Settings', settings_sub: 'Choose language and theme',
+        language: 'Language',
+        theme: 'Theme', theme_dark: 'Dark', theme_light: 'Light', theme_dark_desc: 'Dark theme', theme_light_desc: 'Light theme', theme_changed: 'Theme changed', close: 'Close',
+        hero_badge: '✦ New 2026', hero_desc: 'Movies and series — seasons and episodes. Watch in your language.',
+        hero_meta: 'Movies · Videos · Culture',
+        watch: 'Watch Now', popular: 'Popular',
+        stat_all: 'All Videos', stat_added: 'Added', stat_series: 'Categories',
+        cat_all: 'All', cat_new: 'New', cat_tirs: 'Horror', cat_gerilim: 'Thriller', cat_aksiyon: 'Action',
+        cat_dram: 'Drama', cat_klasik: 'Classic', cat_komedi: 'Comedy', cat_belgefilm: 'Documentary',
+        cat_romantik: 'Romance', cat_zarok: 'Kids', cat_muzik: 'Music', cat_popular: 'Popular',
+        row_top10: 'Top 10', row_new: 'New Videos', row_tirs: 'Horror', row_gerilim: 'Thriller',
+        row_aksiyon: 'Action', row_dram: 'Drama', row_klasik: 'Classic', row_komedi: 'Comedy',
+        row_belgefilm: 'Documentary', row_romantik: 'Romance', row_zarok: 'Kids', row_muzik: 'Music',
+        row_popular: 'Most Popular',
+        footer: '© 2026 KURD · Movies & Series · All rights reserved',
+        film: 'Movie', series: 'Series', season: 'Season', episode: 'Episode', episodes: 'episodes',
+        add_season: '＋ Add Season', add_ep: '＋ Episode', cancel: 'Cancel', confirm: 'Add',
+        series_title: 'Series title', series_cat: 'Category', series_desc: 'Description', series_cover: 'Cover image',
+        lang_changed: 'Language changed',
+        upload_title: 'Add Video / Folder',
+        upload_sub: 'Select one video, multiple videos or an entire folder',
+        tab_files: '📁 Files', tab_folder: '📂 Folder',
+        drop_title_files: 'Drag videos here',
+        drop_hint_files: 'or use the buttons · MP4, WebM, MOV',
+        drop_title_folder: 'Select or drag a folder',
+        drop_hint_folder: 'All videos in the folder are added automatically',
+        btn_pick_files: 'Choose Files', btn_pick_folder: 'Choose Folder',
+        batch_cat: 'Default category:',
+        files_selected: 'videos selected',
+        clear_all: 'Clear All',
+        confirm_one: 'Add 1 Video',
+        confirm_many: 'Add {n} Videos',
+        processing: 'Processing',
+        upload_done: 'videos added successfully!',
+        toast_added: 'videos added',
+        toast_deleted: 'Video deleted',
+        toast_no_video: 'No valid video file found',
+        toast_pick_video: 'Select a video',
+        toast_series_title: 'Enter series title',
+        toast_series_ep: 'Add at least one episode',
+        toast_series_ok: 'Series added',
+        delete_confirm: 'Do you want to delete this video?',
+        player_no_url: 'This video cannot be played now.<br>Local files only work in this session.<br>If you refreshed the page, add the video again.',
+        player_readd: 'Add Again',
+        player_ep_no: 'This episode cannot be played now.<br>File is only available in this session.',
+        series_placeholder: 'e.g. Game of Kurdi',
+        series_desc_ph: 'Series description...',
+        ep_name_ph: 'Episode name',
+        ep_file: 'File',
+        ep_file_ok: '✓ File',
+        ep_empty: 'Click 「＋ Episode」',
+        season_empty: 'No episodes in this season',
+        remove_season: 'Remove',
+        cover_pick: '🖼 Cover',
+        video_name_ph: 'Video title...',
+        badge_new: 'New', badge_tirs: 'Horror', badge_gerilim: 'Thriller', badge_aksiyon: 'Action',
+        badge_dram: 'Drama', badge_klasik: 'Classic', badge_komedi: 'Comedy', badge_belgefilm: 'Documentary',
+        badge_romantik: 'Romance', badge_zarok: 'Kids', badge_muzik: 'Music', badge_popular: 'Popular',
+        badge_dizi: 'Series',
+        just_now: 'now', views_new: 'New',
+        seasons_label: 'Season', episodes_label: 'Episode',
+        series_meta: '{s} Seasons · {c}',
+        series_card_meta: '{s} Seasons · {e} Episodes',
+        admin_title: 'Admin',
+        admin_sub: 'Enter password to upload',
+        admin_password: 'Password',
+        admin_unlock: 'Unlock',
+        admin_wrong: 'Wrong password',
+        admin_ok: 'Admin unlocked'
+      },
+      de: {
+        home: 'Start', categories: 'Kategorien', nav_new: 'Neu', nav_popular: 'Beliebt',
+        search: 'Suchen...', upload: 'Hinzufügen', settings: 'Einstellungen', settings_sub: 'Sprache und Design wählen',
+        language: 'Sprache',
+        theme: 'Design', theme_dark: 'Dunkel', theme_light: 'Hell', theme_dark_desc: 'Dunkles Design', theme_light_desc: 'Helles Design', theme_changed: 'Design geändert', close: 'Schließen',
+        hero_badge: '✦ Neu 2026', hero_desc: 'Filme und Serien — Staffeln und Folgen. In deiner Sprache.',
+        hero_meta: 'Filme · Videos · Kultur',
+        watch: 'Jetzt ansehen', popular: 'Beliebt',
+        stat_all: 'Alle Videos', stat_added: 'Hinzugefügt', stat_series: 'Kategorien',
+        cat_all: 'Alle', cat_new: 'Neu', cat_tirs: 'Horror', cat_gerilim: 'Thriller', cat_aksiyon: 'Action',
+        cat_dram: 'Drama', cat_klasik: 'Klassiker', cat_komedi: 'Komödie', cat_belgefilm: 'Dokumentation',
+        cat_romantik: 'Romantik', cat_zarok: 'Kinder', cat_muzik: 'Musik', cat_popular: 'Beliebt',
+        row_top10: 'Top 10', row_new: 'Neue Videos', row_tirs: 'Horror', row_gerilim: 'Thriller',
+        row_aksiyon: 'Action', row_dram: 'Drama', row_klasik: 'Klassiker', row_komedi: 'Komödie',
+        row_belgefilm: 'Dokumentation', row_romantik: 'Romantik', row_zarok: 'Kinder', row_muzik: 'Musik',
+        row_popular: 'Am beliebtesten',
+        footer: '© 2026 KURD · Filme & Serien · Alle Rechte vorbehalten',
+        film: 'Film', series: 'Serie', season: 'Staffel', episode: 'Folge', episodes: 'Folgen',
+        add_season: '＋ Staffel hinzufügen', add_ep: '＋ Folge', cancel: 'Abbrechen', confirm: 'Hinzufügen',
+        series_title: 'Serientitel', series_cat: 'Kategorie', series_desc: 'Beschreibung', series_cover: 'Titelbild',
+        lang_changed: 'Sprache geändert',
+        upload_title: 'Video / Ordner hinzufügen',
+        upload_sub: 'Ein Video, mehrere Videos oder einen ganzen Ordner wählen',
+        tab_files: '📁 Dateien', tab_folder: '📂 Ordner',
+        drop_title_files: 'Videos hierher ziehen',
+        drop_hint_files: 'oder die Schaltflächen nutzen · MP4, WebM, MOV',
+        drop_title_folder: 'Ordner wählen oder ziehen',
+        drop_hint_folder: 'Alle Videos im Ordner werden automatisch hinzugefügt',
+        btn_pick_files: 'Dateien wählen', btn_pick_folder: 'Ordner wählen',
+        batch_cat: 'Standardkategorie:',
+        files_selected: 'Videos ausgewählt',
+        clear_all: 'Alles löschen',
+        confirm_one: '1 Video hinzufügen',
+        confirm_many: '{n} Videos hinzufügen',
+        processing: 'Wird verarbeitet',
+        upload_done: 'Videos erfolgreich hinzugefügt!',
+        toast_added: 'Videos hinzugefügt',
+        toast_deleted: 'Video gelöscht',
+        toast_no_video: 'Keine gültige Videodatei gefunden',
+        toast_pick_video: 'Ein Video auswählen',
+        toast_series_title: 'Serientitel eingeben',
+        toast_series_ep: 'Mindestens eine Folge hinzufügen',
+        toast_series_ok: 'Serie hinzugefügt',
+        delete_confirm: 'Möchtest du dieses Video löschen?',
+        player_no_url: 'Dieses Video kann jetzt nicht abgespielt werden.<br>Lokale Dateien funktionieren nur in dieser Sitzung.<br>Bei Seitenaktualisierung Video erneut hinzufügen.',
+        player_readd: 'Erneut hinzufügen',
+        player_ep_no: 'Diese Folge kann jetzt nicht abgespielt werden.<br>Datei nur in dieser Sitzung verfügbar.',
+        series_placeholder: 'z.B. Game of Kurdi',
+        series_desc_ph: 'Serienbeschreibung...',
+        ep_name_ph: 'Folgenname',
+        ep_file: 'Datei',
+        ep_file_ok: '✓ Datei',
+        ep_empty: '「＋ Folge」 klicken',
+        season_empty: 'Keine Folgen in dieser Staffel',
+        remove_season: 'Entfernen',
+        cover_pick: '🖼 Cover',
+        video_name_ph: 'Videotitel...',
+        badge_new: 'Neu', badge_tirs: 'Horror', badge_gerilim: 'Thriller', badge_aksiyon: 'Action',
+        badge_dram: 'Drama', badge_klasik: 'Klassiker', badge_komedi: 'Komödie', badge_belgefilm: 'Doku',
+        badge_romantik: 'Romantik', badge_zarok: 'Kinder', badge_muzik: 'Musik', badge_popular: 'Beliebt',
+        badge_dizi: 'Serie',
+        just_now: 'jetzt', views_new: 'Neu',
+        seasons_label: 'Staffel', episodes_label: 'Folge',
+        series_meta: '{s} Staffeln · {c}',
+        series_card_meta: '{s} Staffeln · {e} Folgen',
+        admin_title: 'Admin',
+        admin_sub: 'Passwort zum Hochladen eingeben',
+        admin_password: 'Passwort',
+        admin_unlock: 'Öffnen',
+        admin_wrong: 'Falsches Passwort',
+        admin_ok: 'Admin freigeschaltet'
+      },
+      tr: {
+        home: 'Ana Sayfa', categories: 'Kategoriler', nav_new: 'Yeni', nav_popular: 'Popüler',
+        search: 'Ara...', upload: 'Ekle', settings: 'Ayarlar', settings_sub: 'Dil ve tema seç',
+        language: 'Dil',
+        theme: 'Tema', theme_dark: 'Koyu', theme_light: 'Açık', theme_dark_desc: 'Koyu tema', theme_light_desc: 'Açık tema', theme_changed: 'Tema değiştirildi', close: 'Kapat',
+        hero_badge: '✦ Yeni 2026', hero_desc: 'Film ve diziler — sezon ve bölüm. Kendi dilinde izle.',
+        hero_meta: 'Film · Video · Kültür',
+        watch: 'İzle', popular: 'Popüler',
+        stat_all: 'Tüm Videolar', stat_added: 'Eklenenler', stat_series: 'Kategoriler',
+        cat_all: 'Tümü', cat_new: 'Yeni', cat_tirs: 'Korku', cat_gerilim: 'Gerilim', cat_aksiyon: 'Aksiyon',
+        cat_dram: 'Dram', cat_klasik: 'Klasik', cat_komedi: 'Komedi', cat_belgefilm: 'Belgesel',
+        cat_romantik: 'Romantik', cat_zarok: 'Çocuk', cat_muzik: 'Müzik', cat_popular: 'Popüler',
+        row_top10: 'Top 10', row_new: 'Yeni Videolar', row_tirs: 'Korku', row_gerilim: 'Gerilim',
+        row_aksiyon: 'Aksiyon', row_dram: 'Dram', row_klasik: 'Klasik', row_komedi: 'Komedi',
+        row_belgefilm: 'Belgesel', row_romantik: 'Romantik', row_zarok: 'Çocuk', row_muzik: 'Müzik',
+        row_popular: 'En Popüler',
+        footer: '© 2026 KURD · Film ve Dizi · Tüm hakları saklıdır',
+        film: 'Film', series: 'Dizi', season: 'Sezon', episode: 'Bölüm', episodes: 'bölüm',
+        add_season: '＋ Sezon Ekle', add_ep: '＋ Bölüm', cancel: 'İptal', confirm: 'Ekle',
+        series_title: 'Dizi adı', series_cat: 'Kategori', series_desc: 'Özet', series_cover: 'Kapak görseli',
+        lang_changed: 'Dil değiştirildi',
+        upload_title: 'Video / Klasör Ekle',
+        upload_sub: 'Tek video, birden fazla video veya tüm klasörü seç',
+        tab_files: '📁 Dosya', tab_folder: '📂 Klasör',
+        drop_title_files: 'Videoları buraya sürükle',
+        drop_hint_files: 'veya düğmeleri kullan · MP4, WebM, MOV',
+        drop_title_folder: 'Klasör seç veya sürükle',
+        drop_hint_folder: 'Klasördeki tüm videolar otomatik eklenir',
+        btn_pick_files: 'Dosya Seç', btn_pick_folder: 'Klasör Seç',
+        batch_cat: 'Varsayılan kategori:',
+        files_selected: 'video seçildi',
+        clear_all: 'Tümünü Temizle',
+        confirm_one: '1 Video Ekle',
+        confirm_many: '{n} Video Ekle',
+        processing: 'İşleniyor',
+        upload_done: 'video başarıyla eklendi!',
+        toast_added: 'video eklendi',
+        toast_deleted: 'Video silindi',
+        toast_no_video: 'Geçerli video dosyası bulunamadı',
+        toast_pick_video: 'Bir video seç',
+        toast_series_title: 'Dizi adını yaz',
+        toast_series_ep: 'En az bir bölüm ekle',
+        toast_series_ok: 'Dizi eklendi',
+        delete_confirm: 'Bu videoyu silmek istiyor musun?',
+        player_no_url: 'Bu video şu an oynatılamıyor.<br>Yerel dosyalar yalnızca bu oturumda çalışır.<br>Sayfa yenilendiyse videoyu tekrar ekle.',
+        player_readd: 'Tekrar Ekle',
+        player_ep_no: 'Bu bölüm şu an oynatılamıyor.<br>Dosya yalnızca bu oturumda mevcut.',
+        series_placeholder: 'Örn: Game of Kurdi',
+        series_desc_ph: 'Dizi özeti...',
+        ep_name_ph: 'Bölüm adı',
+        ep_file: 'Dosya',
+        ep_file_ok: '✓ Dosya',
+        ep_empty: '「＋ Bölüm」e tıkla',
+        season_empty: 'Bu sezonda bölüm yok',
+        remove_season: 'Sil',
+        cover_pick: '🖼 Kapak',
+        video_name_ph: 'Video adı...',
+        badge_new: 'Yeni', badge_tirs: 'Korku', badge_gerilim: 'Gerilim', badge_aksiyon: 'Aksiyon',
+        badge_dram: 'Dram', badge_klasik: 'Klasik', badge_komedi: 'Komedi', badge_belgefilm: 'Belgesel',
+        badge_romantik: 'Romantik', badge_zarok: 'Çocuk', badge_muzik: 'Müzik', badge_popular: 'Popüler',
+        badge_dizi: 'Dizi',
+        just_now: 'şimdi', views_new: 'Yeni',
+        seasons_label: 'Sezon', episodes_label: 'Bölüm',
+        series_meta: '{s} Sezon · {c}',
+        series_card_meta: '{s} Sezon · {e} Bölüm',
+        admin_title: 'Admin',
+        admin_sub: 'Yükleme için şifre gir',
+        admin_password: 'Şifre',
+        admin_unlock: 'Aç',
+        admin_wrong: 'Yanlış şifre',
+        admin_ok: 'Admin açıldı'
+      }
+    };
+
+    let currentLang = localStorage.getItem('kurd_lang') || 'ku';
+
+    let currentTheme = localStorage.getItem('kurd_theme') || 'dark';
+
+    function setTheme(theme) {
+      currentTheme = theme === 'light' ? 'light' : 'dark';
+      localStorage.setItem('kurd_theme', currentTheme);
+      applyTheme();
+      document.querySelectorAll('.theme-option').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-theme-opt') === currentTheme);
+      });
+      if (typeof showToast === 'function') showToast(typeof t === 'function' ? t('theme_changed') : 'OK');
+    }
+
+    function applyTheme() {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      document.querySelectorAll('.theme-option').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-theme-opt') === currentTheme);
+      });
+    }
+
+
+
+    function t(key) {
+      return (I18N[currentLang] && I18N[currentLang][key]) || (I18N.ku[key]) || key;
+    }
+
+    function openSettings() {
+      document.getElementById('settingsModal').classList.add('active');
+      document.querySelectorAll('.lang-option').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
+      });
+      document.querySelectorAll('.theme-option').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-theme-opt') === currentTheme);
+      });
+    }
+    function closeSettings() {
+      document.getElementById('settingsModal').classList.remove('active');
+    }
+
+    function setLanguage(lang) {
+      if (!I18N[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('kurd_lang', lang);
+      applyLanguage();
+      document.querySelectorAll('.lang-option').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      showToast(t('lang_changed'));
+    }
+
+    function applyLanguage() {
+      if (typeof refreshBadgeMap === 'function') refreshBadgeMap();
+      document.documentElement.lang = currentLang === 'ku' ? 'ku' : currentLang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (key && t(key)) el.textContent = t(key);
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (key && t(key)) el.placeholder = t(key);
+      });
+      // Category pills
+      const catMap = { all:'cat_all', new:'cat_new', tirs:'cat_tirs', gerilim:'cat_gerilim', aksiyon:'cat_aksiyon',
+        dram:'cat_dram', klasik:'cat_klasik', komedi:'cat_komedi', belgefilm:'cat_belgefilm',
+        romantik:'cat_romantik', zarok:'cat_zarok', muzik:'cat_muzik', popular:'cat_popular' };
+      document.querySelectorAll('.cat-pill').forEach(p => {
+        const c = p.getAttribute('data-cat');
+        if (c && catMap[c]) p.textContent = t(catMap[c]);
+      });
+      // Row titles
+      const rowMap = {
+        'top10-row': ['🔥', 'row_top10'], 'new-row': ['✨', 'row_new'], 'tirs-row': ['👻', 'row_tirs'],
+        'gerilim-row': ['🔪', 'row_gerilim'], 'aksiyon-row': ['💥', 'row_aksiyon'], 'dram-row': ['🎭', 'row_dram'],
+        'klasik-row': ['🎬', 'row_klasik'], 'komedi-row': ['😂', 'row_komedi'], 'belgefilm-row': ['🌍', 'row_belgefilm'],
+        'romantik-row': ['💕', 'row_romantik'], 'zarok-row': ['🧒', 'row_zarok'], 'muzik-row': ['🎵', 'row_muzik']
+       
+      };
+      Object.entries(rowMap).forEach(([id, [emoji, key]]) => {
+        const el = document.querySelector('#' + id + ' .row-title');
+        if (el) el.innerHTML = '<span>' + emoji + '</span> ' + t(key);
+      });
+      // Stats
+      const sl = document.querySelector('#statsBar .stat-item:nth-child(1) .stat-label');
+      const s2 = document.querySelector('#statsBar .stat-item:nth-child(2) .stat-label');
+      const s3 = document.querySelector('#statsBar .stat-item:nth-child(3) .stat-label');
+      if (sl) sl.textContent = t('stat_all');
+      if (s2) s2.textContent = t('stat_added');
+      if (s3) s3.textContent = t('stat_series');
+      // Hero
+      const hb = document.querySelector('.hero-badge');
+      const hd = document.querySelector('.hero-desc');
+      if (hb) hb.textContent = t('hero_badge');
+      if (hd) hd.textContent = t('hero_desc');
+      const heroMetaLast = document.querySelector('.hero-meta span:last-child');
+      if (heroMetaLast && !heroMetaLast.classList.contains('match') && !heroMetaLast.classList.contains('tag')) {
+        heroMetaLast.textContent = t('hero_meta');
+      }
+      // Footer
+      const foot = document.querySelector('footer');
+      if (foot) foot.textContent = t('footer');
+      // Upload modal header
+      const umH2 = document.querySelector('#uploadModal .modal-header h2');
+      const umP = document.querySelector('#uploadModal .modal-header p');
+      if (umH2) umH2.textContent = t('upload_title');
+      if (umP) umP.textContent = t('upload_sub');
+      // Upload type buttons
+      const tf = document.getElementById('typeFilm');
+      const ts = document.getElementById('typeSeries');
+      if (tf) tf.textContent = '🎬 ' + t('film');
+      if (ts) ts.textContent = '📺 ' + t('series');
+      // Upload tabs
+      document.querySelectorAll('.upload-tab').forEach(tab => {
+        if (tab.dataset.tab === 'files') tab.textContent = t('tab_files');
+        if (tab.dataset.tab === 'folder') tab.textContent = t('tab_folder');
+      });
+      // Drop zone (respect current tab)
+      const activeTab = document.querySelector('.upload-tab.active');
+      const isFolder = activeTab && activeTab.dataset.tab === 'folder';
+      const dropTitle = document.getElementById('dropTitle');
+      const dropHint = document.getElementById('dropHint');
+      if (dropTitle) dropTitle.textContent = isFolder ? t('drop_title_folder') : t('drop_title_files');
+      if (dropHint) dropHint.textContent = isFolder ? t('drop_hint_folder') : t('drop_hint_files');
+      const dropBtns = document.querySelectorAll('.drop-zone-btns .drop-btn');
+      if (dropBtns[0]) dropBtns[0].textContent = t('btn_pick_files');
+      if (dropBtns[1]) dropBtns[1].textContent = t('btn_pick_folder');
+      // Batch options
+      const batchLabel = document.querySelector('#batchOptions label');
+      if (batchLabel) batchLabel.textContent = t('batch_cat');
+      // Category selects options
+      updateCategorySelects();
+      // File list header clear button
+      const clearBtn = document.querySelector('#fileListContainer .see-all');
+      if (clearBtn) clearBtn.textContent = t('clear_all');
+      // Series form labels
+      const seriesLabels = document.querySelectorAll('#seriesMode .form-group label');
+      if (seriesLabels[0]) seriesLabels[0].textContent = t('series_title') + ' *';
+      if (seriesLabels[1]) seriesLabels[1].textContent = t('series_cat');
+      if (seriesLabels[2]) seriesLabels[2].textContent = t('series_desc');
+      if (seriesLabels[3]) seriesLabels[3].textContent = t('series_cover');
+      const st = document.getElementById('seriesTitle');
+      if (st) st.placeholder = t('series_placeholder');
+      const sd = document.getElementById('seriesDesc');
+      if (sd) sd.placeholder = t('series_desc_ph');
+      // Add season button
+      const addSeasonBtn = document.querySelector('#seriesMode > .mini-btn');
+      if (addSeasonBtn) addSeasonBtn.textContent = t('add_season');
+      // Cancel / confirm
+      const cancel = document.querySelector('#uploadModal .btn-cancel');
+      if (cancel) cancel.textContent = t('cancel');
+      updateConfirmBtn();
+      // Password / admin modal
+      const pwH2 = document.querySelector('#passwordModal .modal-header h2');
+      const pwP = document.querySelector('#passwordModal .modal-header p');
+      const pwLabel = document.querySelector('#passwordModal .form-group label');
+      const pwErr = document.getElementById('passwordError');
+      const pwCancel = document.querySelector('#passwordModal .btn-cancel');
+      const pwConfirm = document.querySelector('#passwordModal .btn-confirm');
+      if (pwH2) pwH2.textContent = t('admin_title');
+      if (pwP) pwP.textContent = t('admin_sub');
+      if (pwLabel) pwLabel.textContent = t('admin_password');
+      if (pwErr) pwErr.textContent = t('admin_wrong');
+      if (pwCancel) pwCancel.textContent = t('cancel');
+      if (pwConfirm) pwConfirm.textContent = t('admin_unlock');
+      // Settings sub already via data-i18n
+      // Re-render dynamic parts that depend on language
+      if (typeof renderPendingList === 'function' && pendingFiles && pendingFiles.length) renderPendingList();
+      if (typeof renderSeasonsBuilder === 'function' && seriesSeasons && seriesSeasons.length) renderSeasonsBuilder();
+      if (typeof renderAll === 'function') renderAll();
+      // If series modal open, refresh it
+      if (currentSeriesId != null) {
+        const series = videos.find(v => v.id === currentSeriesId);
+        if (series && typeof renderSeriesModal === 'function') renderSeriesModal(series);
+      }
+    }
+
+    function updateCategorySelects() {
+      const opts = [
+        ['new','badge_new'],['tirs','badge_tirs'],['gerilim','badge_gerilim'],['aksiyon','badge_aksiyon'],
+        ['dram','badge_dram'],['klasik','badge_klasik'],['komedi','badge_komedi'],['belgefilm','badge_belgefilm'],
+        ['romantik','badge_romantik'],['zarok','badge_zarok'],['muzik','badge_muzik'],['popular','badge_popular']
+      ];
+      ['defaultCategory','seriesCategory'].forEach(id => {
+        const sel = document.getElementById(id);
+        if (!sel) return;
+        const cur = sel.value;
+        sel.innerHTML = opts.map(([v,k]) => '<option value="'+v+'">'+t(k)+'</option>').join('');
+        if (cur) sel.value = cur;
+      });
+    }
+
+
+
+    // ===== SERIES SYSTEM =====
+    let contentType = 'film';
+    let seriesSeasons = [];
+    let currentSeriesId = null;
+    let currentSeasonIdx = 0;
+
+    function setContentType(type) {
+      contentType = type;
+      const tf = document.getElementById('typeFilm');
+      const ts = document.getElementById('typeSeries');
+      if (tf) tf.classList.toggle('active', type === 'film');
+      if (ts) ts.classList.toggle('active', type === 'series');
+      const fm = document.getElementById('filmMode');
+      const sm = document.getElementById('seriesMode');
+      if (fm) fm.style.display = type === 'film' ? 'block' : 'none';
+      if (sm) sm.style.display = type === 'series' ? 'block' : 'none';
+      if (type === 'series') {
+        const sc = document.getElementById('seriesCategory');
+        const dc = document.getElementById('defaultCategory');
+        if (sc && dc) sc.innerHTML = dc.innerHTML;
+        if (seriesSeasons.length === 0) addSeason();
+        const btn = document.getElementById('confirmBtn');
+        if (btn) btn.disabled = false;
+      }
+    }
+
+    function addSeason() {
+      seriesSeasons.push({ number: seriesSeasons.length + 1, episodes: [] });
+      renderSeasonsBuilder();
+    }
+    function removeSeason(idx) {
+      seriesSeasons.splice(idx, 1);
+      seriesSeasons.forEach((s, i) => s.number = i + 1);
+      renderSeasonsBuilder();
+    }
+    function addEpisode(seasonIdx) {
+      seriesSeasons[seasonIdx].episodes.push({ title: '', file: null, duration: '0:00', thumb: null });
+      renderSeasonsBuilder();
+    }
+    function removeEpisode(sIdx, eIdx) {
+      seriesSeasons[sIdx].episodes.splice(eIdx, 1);
+      renderSeasonsBuilder();
+    }
+    async function setEpisodeFile(sIdx, eIdx, input) {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const ep = seriesSeasons[sIdx].episodes[eIdx];
+      ep.file = file;
+      if (!ep.title) ep.title = file.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' ');
+      if (typeof getVideoDuration === 'function') ep.duration = await getVideoDuration(file);
+      if (typeof generateThumb === 'function') ep.thumb = await generateThumb(file);
+      renderSeasonsBuilder();
+    }
+    function renderSeasonsBuilder() {
+      const box = document.getElementById('seasonsContainer');
+      if (!box) return;
+      box.innerHTML = seriesSeasons.map((s, si) => `
+        <div class="season-block">
+          <div class="season-header">
+            <strong>${t('season')} ${s.number}</strong>
+            <div>
+              <button type="button" class="mini-btn" onclick="addEpisode(${si})">${t('add_ep')}</button>
+              <button type="button" class="mini-btn danger" onclick="removeSeason(${si})">${t('remove_season')}</button>
+            </div>
+          </div>
+          ${s.episodes.map((ep, ei) => `
+            <div class="episode-row">
+              <span style="color:var(--text-dim);font-size:12px;width:22px;">${ei+1}</span>
+              <input type="text" value="${(ep.title||'').replace(/"/g,'&quot;')}" placeholder="${t('ep_name_ph')}"
+                oninput="seriesSeasons[${si}].episodes[${ei}].title=this.value">
+              <label class="ep-file-label ${ep.file ? 'has-file' : ''}">
+                ${ep.file ? t('ep_file_ok') : t('ep_file')}
+                <input type="file" accept="video/*" onchange="setEpisodeFile(${si}, ${ei}, this)">
+              </label>
+              <span style="font-size:11px;color:var(--text-muted);">${ep.duration||''}</span>
+              <button type="button" class="file-remove" onclick="removeEpisode(${si},${ei})">✕</button>
+            </div>
+          `).join('') || '<div style="font-size:12px;color:var(--text-dim);padding:6px;">' + t('ep_empty') + '</div>'}
+        </div>
+      `).join('');
+    }
+
+    function countEpisodes(item) {
+      if (!item.seasons) return 0;
+      return item.seasons.reduce((n, s) => n + (s.episodes || []).length, 0);
+    }
+
+    function openSeries(id) {
+      const series = videos.find(v => v.id === id);
+      if (!series || series.type !== 'series') return;
+      trackClick(id);
+      currentSeriesId = id;
+      currentSeasonIdx = 0;
+      renderSeriesModal(series);
+      document.getElementById('seriesModal').classList.add('active');
+    }
+    function closeSeriesModal() {
+      const m = document.getElementById('seriesModal');
+      if (m) m.classList.remove('active');
+    }
+    function renderSeriesModal(series) {
+      const seasons = series.seasons || [];
+      if (currentSeasonIdx < 0 || currentSeasonIdx >= seasons.length) currentSeasonIdx = 0;
+      const season = seasons[currentSeasonIdx] || { number: 1, episodes: [] };
+      const eps = Array.isArray(season.episodes) ? season.episodes : [];
+      const thumb = series.thumb || 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80';
+      const body = document.getElementById('seriesModalBody');
+      const seasonNum = season.number != null ? season.number : (currentSeasonIdx + 1);
+      body.innerHTML = `
+        <div class="series-hero">
+          <img src="${thumb}" alt="">
+          <div class="series-hero-fade"></div>
+        </div>
+        <div class="series-info">
+          <h2>${series.title}</h2>
+          <div class="series-meta">${t('series_meta').replace('{s}', seasons.length).replace('{c}', BADGE_MAP[series.category] || '')}</div>
+          <div class="series-desc">${series.desc || ''}</div>
+          <div class="season-tabs" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+            ${seasons.map((s, i) => {
+              const n = s.number != null ? s.number : (i + 1);
+              const active = i === currentSeasonIdx;
+              return '<button type="button" onclick="changeSeason(' + i + ')" style="padding:8px 16px;border-radius:8px;border:1px solid ' + (active ? 'var(--accent)' : 'var(--border)') + ';background:' + (active ? 'var(--accent-soft)' : 'var(--bg)') + ';color:var(--text);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">' + (typeof t==='function'?t('season'):'Sezon') + ' ' + n + '</button>';
+            }).join('')}
+          </div>
+          <div style="font-size:15px;font-weight:700;margin-bottom:10px;color:var(--text);">
+            ${typeof t==='function'?t('season'):'Sezon'} ${seasonNum}
+            <span style="font-weight:500;color:var(--text-muted);font-size:13px;margin-left:8px;">${eps.length} ${t('episodes')}</span>
+          </div>
+        </div>
+        <div class="episode-list" id="episodeListOnly">
+          ${eps.length ? eps.map((ep, i) => `
+            <div class="episode-item" onclick="playEpisode(${series.id}, ${currentSeasonIdx}, ${i})">
+              <div class="ep-num">${i + 1}</div>
+              <img class="ep-thumb" src="${ep.thumb || thumb}" alt="" onerror="this.src='${thumb}'">
+              <div class="ep-info">
+                <div class="ep-title">${ep.title || ('Beş ' + (i + 1))}</div>
+                <div class="ep-dur">${ep.duration || ''}</div>
+              </div>
+              <button class="ep-play" onclick="event.stopPropagation(); playEpisode(${series.id}, ${currentSeasonIdx}, ${i})">▶</button>
+            </div>
+          `).join('') : '<div style="padding:20px;color:var(--text-muted);text-align:center;">Vê sezonê de beş tune ne</div>'}
+        </div>`;
+    }
+    function changeSeason(idx) {
+      currentSeasonIdx = parseInt(idx, 10) || 0;
+      const series = videos.find(v => v.id === currentSeriesId);
+      if (series) renderSeriesModal(series);
+    }
+    function playEpisode(seriesId, seasonIdx, epIdx) {
+      const series = videos.find(v => v.id === seriesId);
+      if (!series) return;
+      trackView(seriesId);
+      const ep = series.seasons[seasonIdx].episodes[epIdx];
+      if (!ep) return;
+      const title = series.title + ' — S' + series.seasons[seasonIdx].number + 'E' + (epIdx+1) + ': ' + ep.title;
+      const epKey = ep.id || (seriesId + '_s' + seasonIdx + '_e' + epIdx);
+      // reuse play flow
+      const modal = document.getElementById('playerModal');
+      document.getElementById('playerTitle').textContent = title;
+      const content = document.getElementById('playerContent');
+      content.innerHTML = '';
+      if (fileStore.has(epKey)) {
+        content.innerHTML = '<video controls autoplay playsinline src="' + URL.createObjectURL(fileStore.get(epKey)) + '" style="width:100%;aspect-ratio:16/9;border-radius:14px;background:#000;"></video>';
+      } else {
+        content.innerHTML = '<div class="player-no-url"><div style="font-size:44px;margin-bottom:12px">📂</div>' + t('player_ep_no') + '</div>';
+      }
+      modal.classList.add('active');
+      if (typeof showPlayerControls === 'function') showPlayerControls();
+    }
+
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+      updateNavOnScroll();
+    });
+
+    renderAll();
+    if (typeof applyTheme === "function") applyTheme();
+    if (typeof applyLanguage === "function") applyLanguage();
+  </script>
+</body>
+</html>
